@@ -38,7 +38,7 @@ MCDemo class >> initialize [
 	^ (WAAdmin register: self asApplicationAt: 'MCDemo')
 		preferenceAt: #sessionClass put: MCDemoSession;
 		addLibrary: JQDeploymentLibrary;
-		"addLibrary: MDLLibrary;
+		addLibrary: MCLibrary;"
 		addLibrary: MDLDemoLibrary;"
 		yourself
 ]
@@ -59,12 +59,12 @@ MCDemo class >> open [
 	<script>
 	| port url |
 	WAServerManager default adaptors
-		ifEmpty: [ (ZnZincServerAdaptor port: (port := 8085)) start ]
+		ifEmpty: [ (ZnZincServerAdaptor port: (port := 8086)) start ]
 		ifNotEmpty: [ :adaptors | 
 			adaptors
 				detect: #isRunning
 				ifFound: [ :anAdaptor | port := anAdaptor server port ]
-				ifNone: [ (ZnZincServerAdaptor port: (port := 8085)) start ] ].
+				ifNone: [ (ZnZincServerAdaptor port: (port := 8086)) start ] ].
 	url := 'http://localhost:' , port asString , '/MCDemo'.
 	self flag: #pharo6.
 	SystemVersion current major < 7
@@ -115,8 +115,7 @@ MCDemo >> defaultFooter [
 
 { #category : #components }
 MCDemo >> defaultHeader [
-	self flag: #todo.
-	^ nil
+	^ MCDemoHeader new
 ]
 
 { #category : #updating }
@@ -180,7 +179,8 @@ MCDemo >> initialize [
 { #category : #rendering }
 MCDemo >> renderContentOn: html [
 	self flag: #todo.
-	html text: 'TODO'
+	html text: 'TODO'.
+	html html: '<button class="mdc-button">Test</button>'
 ]
 
 { #category : #updating }
@@ -193,7 +193,7 @@ MCDemo >> updateRoot: anHtmlRoot [
 		attributeAt: 'name' put: 'viewport';
 		content: 'width=device-width, initial-scale=1'.
 	self updateTabIconRoot: anHtmlRoot.
-	anHtmlRoot javascript add: 'hljs.initHighlightingOnLoad();'
+	"anHtmlRoot javascript add: 'hljs.initHighlightingOnLoad();'"
 ]
 
 { #category : #updating }

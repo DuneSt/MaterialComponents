@@ -7,7 +7,7 @@ I am an empty class to manage infrastructure stuff
 Class {
 	#name : #MaterialComponents,
 	#superclass : #Object,
-	#category : #'Material-Components-Components-Material-Components-Components'
+	#category : #'Material-Components-Components-Core'
 }
 
 { #category : #images }
