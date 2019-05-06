@@ -11,10 +11,20 @@ Class {
 	#category : #'Material-Components-Components-Layout'
 }
 
+{ #category : #options }
+MCTopAppBar >> dense [
+	self class: 'mdc-top-app-bar--dense'
+]
+
 { #category : #initialization }
 MCTopAppBar >> initialize [
 	super initialize.
 	self class: 'mdc-top-app-bar'
+]
+
+{ #category : #options }
+MCTopAppBar >> prominent [
+	self class: 'mdc-top-app-bar--prominent'
 ]
 
 { #category : #accessing }

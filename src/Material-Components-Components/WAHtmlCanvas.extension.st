@@ -2,9 +2,7 @@ Extension { #name : #WAHtmlCanvas }
 
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBar [
-	^ self
-		brush: MCTopAppBar new;
-		yourself
+	^ self brush: MCTopAppBar new
 ]
 
 { #category : #'*Material-Components-Components' }
@@ -20,6 +18,30 @@ WAHtmlCanvas >> mcTopAppBarRow [
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBarRow: aBlock [
 	^ self mcTopAppBarRow
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mcTopAppBarSection [
+	^ self brush: MCTopAppBarSection new 
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mcTopAppBarSection: aBlock [
+	^ self mcTopAppBarSection
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mcTopAppBarTitle [
+	^ self brush: MCTopAppBarTitle new 
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mcTopAppBarTitle: aBlock [
+	^ self mcTopAppBarTitle
 		with: aBlock;
 		yourself
 ]

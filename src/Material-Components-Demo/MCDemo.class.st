@@ -38,8 +38,8 @@ MCDemo class >> initialize [
 	^ (WAAdmin register: self asApplicationAt: 'MCDemo')
 		preferenceAt: #sessionClass put: MCDemoSession;
 		addLibrary: JQDeploymentLibrary;
-		addLibrary: MCLibrary;"
-		addLibrary: MDLDemoLibrary;"
+		addLibrary: MCLibrary;
+		addLibrary: MCDemoLibrary;
 		yourself
 ]
 
@@ -145,47 +145,51 @@ MCDemo >> header: anObject [
 
 { #category : #hooks }
 MCDemo >> initialRequest: aRequest [
-	self flag: #todo.
-"	| consumer pageName |
+	| consumer pageName |
 	super initialRequest: aRequest.
-	consumer := self requestContext consumer."
+	consumer := self requestContext consumer.
 	
 	"If we are at end, nothing to manage"
-	"consumer atEnd ifTrue: [ ^ self ]."
+	consumer atEnd ifTrue: [ ^ self ].
 	
-	"pageName := consumer peek asLowercase." "Do not make URLs case sensitive in that case"
+	pageName := consumer peek asLowercase. "Do not make URLs case sensitive in that case"
 	
 	"Try to find a page corresponding"
-	"self header possiblePages
+	self header possiblePages
 		detect: [ :each | each pathName asLowercase = pageName ]
 		ifFound: [ :class | 
-			self displayInstanceOf: class."
+			self displayInstanceOf: class.
 
 			"If we find a page, we pop the subpart of the path corresponding to the page."
-			"consumer next ]"
+			consumer next ]
 ]
 
 { #category : #initialization }
 MCDemo >> initialize [
-	self flag: #todo.
 	super initialize.
 	self header: self defaultHeader.
 	self footer: self defaultFooter.
 	self session rootComponent: self.
 	self componentInstances: Dictionary new.
-	"self displayInstanceOf: MCDemoPage pagesToDisplay first"
+	self displayInstanceOf: MCDemoPage pagesToDisplay first
 ]
 
 { #category : #rendering }
 MCDemo >> renderContentOn: html [
 	self flag: #todo.
-	html text: 'TODO'.
-	html html: '<button class="mdc-button">Test</button>'
+	html render: self header.
+	html render: self componentToDisplay
+]
+
+{ #category : #hooks }
+MCDemo >> style [
+	^ 'body{
+	margin: 0;
+}'
 ]
 
 { #category : #updating }
 MCDemo >> updateRoot: anHtmlRoot [
-	self flag: #todo.
 	super updateRoot: anHtmlRoot.
 	anHtmlRoot beHtml5.
 	anHtmlRoot title: 'Demo - Material Components for Seaside'.
@@ -193,13 +197,12 @@ MCDemo >> updateRoot: anHtmlRoot [
 		attributeAt: 'name' put: 'viewport';
 		content: 'width=device-width, initial-scale=1'.
 	self updateTabIconRoot: anHtmlRoot.
-	"anHtmlRoot javascript add: 'hljs.initHighlightingOnLoad();'"
+	anHtmlRoot javascript add: 'hljs.initHighlightingOnLoad();'
 ]
 
 { #category : #updating }
 MCDemo >> updateTabIconRoot: anHtmlRoot [
-	self flag: #todo.
-	"anHtmlRoot link
+	anHtmlRoot link
 		relationship: 'apple-touch-icon';
 		attributeAt: 'sizes' put: '120x120';
 		url: (MCDemoLibrary urlOf: 'appleicon120x120Png').
@@ -222,14 +225,13 @@ MCDemo >> updateTabIconRoot: anHtmlRoot [
 		url: (MCDemoLibrary urlOf: 'safaripinnedtabSvg').
 	anHtmlRoot meta
 		name: 'theme-color';
-		content: '#ffffff'"
+		content: '#ffffff'
 ]
 
 { #category : #updating }
 MCDemo >> updateUrl: aUrl [
-	self flag: #todo.
-	"super updateUrl: aUrl.
-	aUrl addToPath: (self componentToDisplay pathName)"
+	super updateUrl: aUrl.
+	aUrl addToPath: (self componentToDisplay pathName)
 ]
 
 { #category : #accessing }
