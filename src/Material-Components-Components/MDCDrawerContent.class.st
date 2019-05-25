@@ -3,7 +3,7 @@ Class {
 	#superclass : #MDCDivTag,
 	#traits : 'TMDCBrush',
 	#classTraits : 'TMDCBrush classTrait',
-	#category : #'Material-Components-Components-Core'
+	#category : #'Material-Components-Components-Layout'
 }
 
 { #category : #initialization }

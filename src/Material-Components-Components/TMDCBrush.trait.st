@@ -1,6 +1,6 @@
 Trait {
 	#name : #TMDCBrush,
-	#category : #'Material-Components-Components'
+	#category : #'Material-Components-Components-Traits'
 }
 
 { #category : #accessing }

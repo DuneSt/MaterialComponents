@@ -1,6 +1,6 @@
 Trait {
 	#name : #TMDCAutoInitBrush,
-	#category : #'Material-Components-Components'
+	#category : #'Material-Components-Components-Traits'
 }
 
 { #category : #initialization }

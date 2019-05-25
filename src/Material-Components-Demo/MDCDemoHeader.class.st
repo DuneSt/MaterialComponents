@@ -20,61 +20,37 @@ MDCDemoHeader >> possiblePages [
 
 { #category : #rendering }
 MDCDemoHeader >> renderContentOn: html [
-	self flag: #todo.
+	self flag: #todo.	"finish header"
+	self flag: #todo.	"Add icons to drawer?"
 	html
-		mdcModalDrawerId: html nextId
-		with: [ html
+		mdcModalDrawer: [ html
 				mdcDrawerContent: [ html
-						html:
-							'<div class="mdc-drawer__content">
-  <nav class="mdc-list">
-    <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-      <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-      <span class="mdc-list-item__text">Inbox</span>
-    </a>
-    <a class="mdc-list-item" href="#">
-      <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-      <span class="mdc-list-item__text">Outgoing</span>
-    </a>
-    <a class="mdc-list-item" href="#">
-      <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-      <span class="mdc-list-item__text">Drafts</span>
-    </a>
-  </nav>' ] ].
+						mdcNavigationList: [ self possiblePages
+								do: [ :aClass | 
+									html mdcAnchorListItem
+										callback: [ self displayInstanceOf: aClass ];
+										isActiveIf: aClass = self rootComponent componentToDisplay class;
+										with: [ html mdcListItemText: aClass pageName ] ] ] ] ].
 
 	html
 		mdcTopAppBar: [ html
-				mdcTopAppBarRow: [ "html
-				mdlLayoutTabBar: [ self possiblePages
-						do: [ :aClass | 
-							html mdlLayoutTab
-								callback: [ self displayInstanceOf: aClass ];
-								isActiveIf: aClass = self rootComponent componentToDisplay class;
-								with: aClass pageName ]"
-					html mdcTopAppBarSection
+				mdcTopAppBarRow: [ html mdcTopAppBarSection
 						alignStart;
-						with: [ html html: ' <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>'.
+						with: [ html mdcTopAppBarNavigationIcon
+								openModalDrawer;
+								with: 'menu'.
 							html image
 								style: 'width: 40px; height: 40px;';
 								url: (MDCDemoLibrary urlOf: 'logoSvg').
 							html anchor
 								style: 'text-decoration: none; color: rgb(255,255,255);';
 								callback: [ "Just refresh" ];
-								with: [ html mdcTopAppBarTitle: [ html text: 'Material Components for Seaside' ] ] ].
+								with: [ html mdcTopAppBarTitle: 'Material Components for Seaside' ] ].
 
 					html mdcTopAppBarSection
 						alignEnd;
 						with: [ html text: '	Version ' , self version.
-							self renderForkMeOnGithubOn: html ] ] ].
-	html document
-		addLoadScript:
-			('const drawer = document.querySelector("#' , html lastId
-				,
-					'").MDCDrawer;
-const topAppBar = document.querySelector("header").MDCTopAppBar;
-topAppBar.listen("MDCTopAppBar:nav", () => {
-  drawer.open = !drawer.open;
-});') js
+							self renderForkMeOnGithubOn: html ] ] ]
 ]
 
 { #category : #rendering }
