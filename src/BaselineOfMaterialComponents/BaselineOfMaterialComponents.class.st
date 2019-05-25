@@ -27,8 +27,9 @@ BaselineOfMaterialComponents >> baseline: spec [
 				package: 'Material-Components-Widgets-Tests' with: [ spec requires: #('widgets' 'Material-Components-Components-Tests') ];
 				package: 'Material-Components-Extensions' with: [ spec requires: #('utils' 'components') ];
 				package: 'Material-Components-Extensions-Tests' with: [ spec requires: #('extensions' 'Material-Components-Components-Tests') ];"
-				package: 'Material-Components-Utils' with: [ spec requires: #('Seaside3' 'FileLibraryHelper') ];
-				package: 'Material-Components-Demo' with: [ spec requires: #('core' 'utils') ].
+				package: 'Material-Components-Utils' with: [ spec requires: #('Seaside3') ];
+				package: 'Material-Components-Demo' with: [ spec requires: #('core' 'utils') ];
+				package: 'Material-Components-Dev' with: [ spec requires: #('core' 'utils' 'FileLibraryHelper') ].
 			
 			"Groups"
 			spec
@@ -39,7 +40,8 @@ BaselineOfMaterialComponents >> baseline: spec [
 				group: 'extensions' with: #('Material-Components-Extensions');"
 				group: 'utils' with: #('Material-Components-Utils');
 				group: 'default' with: #('core' 'tests' 'demo');
-				group: 'demo' with: #('Material-Components-Demo')";
+				group: 'demo' with: #('Material-Components-Demo');
+				group: 'dev' with: #('default' 'Material-Components-Dev')";
 				group: 'tests' with: #('Material-Components-Components-Tests' 'Material-Components-Widgets-Tests' 'Material-Components-Extensions-Tests')" ]
 ]
 
