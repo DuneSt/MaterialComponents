@@ -1,6 +1,11 @@
 Extension { #name : #WAHtmlCanvas }
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> autoInit [
+	self document addLoadScriptFirst: 'window.mdc.autoInit();' js
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBar [
 	^ self brush: MCTopAppBar new
 ]

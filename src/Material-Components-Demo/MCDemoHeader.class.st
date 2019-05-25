@@ -21,10 +21,30 @@ MCDemoHeader >> possiblePages [
 { #category : #rendering }
 MCDemoHeader >> renderContentOn: html [
 	self flag: #todo.
+	html html: ' <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+    <div class="mdc-drawer__content">
+      <nav class="mdc-list">
+        <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+          <span class="mdc-list-item__text">Inbox</span>
+        </a>
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <span class="mdc-list-item__text">Outgoing</span>
+        </a>
+        <a class="mdc-list-item" href="#">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+          <span class="mdc-list-item__text">Drafts</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="mdc-drawer-scrim"></div>'.
 	html mcTopAppBar: [ html
 				mcTopAppBarRow: [ html mcTopAppBarSection
 						alignStart;
-						with: [ html image
+						with: [ html html: ' <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>'.html image
 								style: 'width: 40px; height: 40px;';
 								url: (MCDemoLibrary urlOf: 'logoSvg').
 							html anchor
@@ -36,29 +56,20 @@ MCDemoHeader >> renderContentOn: html [
 						alignEnd;
 						with: [ html text: '	Version ' , self version.
 							self renderForkMeOnGithubOn: html ] ].
-					html mcTopAppBarRow: [ html html: '<div class="mdc-tab-bar" role="tablist">
-
-
-        <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-          <span class="mdc-tab__content">
-            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-            <span class="mdc-tab__text-label">Favorites</span>
-          </span>
-          <span class="mdc-tab-indicator mdc-tab-indicator--active">
-            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-          </span>
-          <span class="mdc-tab__ripple"></span>
-        </button>
-
-
-</div>' ]
 			"html
 				mdlLayoutTabBar: [ self possiblePages
 						do: [ :aClass | 
 							html mdlLayoutTab
 								callback: [ self displayInstanceOf: aClass ];
 								isActiveIf: aClass = self rootComponent componentToDisplay class;
-								with: aClass pageName ]" ]
+								with: aClass pageName ]" ].
+						html document addLoadScript: 'const drawer = document.querySelector(".mdc-drawer").MDCDrawer;
+const topAppBar = document.querySelector("header").MDCTopAppBar;
+topAppBar.listen("MDCTopAppBar:nav", () => {
+  drawer.open = !drawer.open;
+});' js
+	
+						
 ]
 
 { #category : #rendering }

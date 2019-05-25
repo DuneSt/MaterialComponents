@@ -19,7 +19,8 @@ MCTopAppBar >> dense [
 { #category : #initialization }
 MCTopAppBar >> initialize [
 	super initialize.
-	self class: 'mdc-top-app-bar'
+	self class: 'mdc-top-app-bar'.
+	self attributeAt: 'data-mdc-auto-init' put: 'MDCTopAppBar'
 ]
 
 { #category : #options }

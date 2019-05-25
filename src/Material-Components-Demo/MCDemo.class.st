@@ -178,7 +178,8 @@ MCDemo >> initialize [
 MCDemo >> renderContentOn: html [
 	self flag: #todo.
 	html render: self header.
-	html render: self componentToDisplay
+	html render: self componentToDisplay.
+	html autoInit
 ]
 
 { #category : #hooks }
