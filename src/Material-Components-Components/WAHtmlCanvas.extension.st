@@ -6,47 +6,47 @@ WAHtmlCanvas >> autoInit [
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBar [
+WAHtmlCanvas >> mdcTopAppBar [
 	^ self brush: MDCTopAppBar new
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBar: aBlock [
-	^ self mcTopAppBar with: aBlock
+WAHtmlCanvas >> mdcTopAppBar: aBlock [
+	^ self mdcTopAppBar with: aBlock
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBarRow [
+WAHtmlCanvas >> mdcTopAppBarRow [
 	^ self brush: MDCTopAppBarRow new 
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBarRow: aBlock [
-	^ self mcTopAppBarRow
+WAHtmlCanvas >> mdcTopAppBarRow: aBlock [
+	^ self mdcTopAppBarRow
 		with: aBlock;
 		yourself
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBarSection [
+WAHtmlCanvas >> mdcTopAppBarSection [
 	^ self brush: MDCTopAppBarSection new 
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBarSection: aBlock [
-	^ self mcTopAppBarSection
+WAHtmlCanvas >> mdcTopAppBarSection: aBlock [
+	^ self mdcTopAppBarSection
 		with: aBlock;
 		yourself
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBarTitle [
+WAHtmlCanvas >> mdcTopAppBarTitle [
 	^ self brush: MDCTopAppBarTitle new 
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mcTopAppBarTitle: aBlock [
-	^ self mcTopAppBarTitle
+WAHtmlCanvas >> mdcTopAppBarTitle: aBlock [
+	^ self mdcTopAppBarTitle
 		with: aBlock;
 		yourself
 ]

@@ -41,8 +41,8 @@ MDCDemoHeader >> renderContentOn: html [
   </aside>
 
   <div class="mdc-drawer-scrim"></div>'.
-	html mcTopAppBar: [ html
-				mcTopAppBarRow: [ html mcTopAppBarSection
+	html mdcTopAppBar: [ html
+				mdcTopAppBarRow: [ html mdcTopAppBarSection
 						alignStart;
 						with: [ html html: ' <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>'.html image
 								style: 'width: 40px; height: 40px;';
@@ -50,9 +50,9 @@ MDCDemoHeader >> renderContentOn: html [
 							html anchor
 								style: 'text-decoration: none; color: rgb(255,255,255);';
 								callback: [ "Just refresh" ];
-								with: [ html mcTopAppBarTitle: [ html text: 'Material Components for Seaside' ] ] ].
+								with: [ html mdcTopAppBarTitle: [ html text: 'Material Components for Seaside' ] ] ].
 
-					html mcTopAppBarSection
+					html mdcTopAppBarSection
 						alignEnd;
 						with: [ html text: '	Version ' , self version.
 							self renderForkMeOnGithubOn: html ] ].
