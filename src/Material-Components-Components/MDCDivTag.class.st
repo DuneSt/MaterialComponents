@@ -7,7 +7,7 @@ The <div> tag defines a division/section in a document.
 Use the <div> tag to group block-elements to format them with styles.
 "
 Class {
-	#name : #MCDivTag,
+	#name : #MDCDivTag,
 	#superclass : #WATagBrush,
 	#traits : 'TMDCBrush',
 	#classTraits : 'TMDCBrush classTrait',
@@ -15,6 +15,6 @@ Class {
 }
 
 { #category : #accessing }
-MCDivTag >> tag [
+MDCDivTag >> tag [
 	^ 'div'
 ]

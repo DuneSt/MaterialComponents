@@ -7,31 +7,31 @@ Abstract superclass of all demo components.
 I provide some conveniance methods to be used during the redering of the demo.
 "
 Class {
-	#name : #MCDemoComponent,
+	#name : #MDCDemoComponent,
 	#superclass : #WAComponent,
 	#category : #'Material-Components-Demo-Core'
 }
 
 { #category : #convenience }
-MCDemoComponent >> display: aComponentInstance [
+MDCDemoComponent >> display: aComponentInstance [
 	"Set a component instance as the component to display by the root component."
 
 	self rootComponent componentToDisplay: aComponentInstance
 ]
 
 { #category : #convenience }
-MCDemoComponent >> displayInstanceOf: aComponentClass [
+MDCDemoComponent >> displayInstanceOf: aComponentClass [
 	"Set a component class as the component to display by the root component."
 
 	self rootComponent displayInstanceOf: aComponentClass
 ]
 
 { #category : #accessing }
-MCDemoComponent >> rootComponent [
+MDCDemoComponent >> rootComponent [
 	^ self session rootComponent
 ]
 
 { #category : #rendering }
-MCDemoComponent >> version [
+MDCDemoComponent >> version [
 	^ self rootComponent version
 ]

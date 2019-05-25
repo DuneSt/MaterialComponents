@@ -1,5 +1,5 @@
 Class {
-	#name : #MCDrawer,
+	#name : #MDCDrawer,
 	#superclass : #WATagBrush,
 	#traits : 'TMDCBrush + TAutoInitBrush',
 	#classTraits : 'TMDCBrush classTrait + TAutoInitBrush classTrait',
@@ -7,13 +7,13 @@ Class {
 }
 
 { #category : #initialization }
-MCDrawer >> initialize [
+MDCDrawer >> initialize [
 	super initialize.
 	self mdcClass: 'drawer'.
 	self autoInit: 'MDCDrawer'
 ]
 
 { #category : #accessing }
-MCDrawer >> tag [
+MDCDrawer >> tag [
 	^ 'aside'
 ]

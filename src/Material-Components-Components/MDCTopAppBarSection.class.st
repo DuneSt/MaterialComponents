@@ -1,21 +1,21 @@
 Class {
-	#name : #MCTopAppBarSection,
-	#superclass : #MCDivTag,
+	#name : #MDCTopAppBarSection,
+	#superclass : #MDCDivTag,
 	#category : #'Material-Components-Components-Layout'
 }
 
 { #category : #options }
-MCTopAppBarSection >> alignEnd [
+MDCTopAppBarSection >> alignEnd [
 	self mdcClass: 'top-app-bar__section--align-end'
 ]
 
 { #category : #options }
-MCTopAppBarSection >> alignStart [
+MDCTopAppBarSection >> alignStart [
 	self mdcClass: 'top-app-bar__section--align-start'
 ]
 
 { #category : #initialization }
-MCTopAppBarSection >> initialize [
+MDCTopAppBarSection >> initialize [
 	super initialize.
 	self mdcClass: 'top-app-bar__section'
 ]

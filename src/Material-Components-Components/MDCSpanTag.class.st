@@ -1,5 +1,5 @@
 Class {
-	#name : #MCSpanTag,
+	#name : #MDCSpanTag,
 	#superclass : #WATagBrush,
 	#traits : 'TMDCBrush',
 	#classTraits : 'TMDCBrush classTrait',
@@ -7,6 +7,6 @@ Class {
 }
 
 { #category : #accessing }
-MCSpanTag >> tag [
+MDCSpanTag >> tag [
 	^ 'div'
 ]

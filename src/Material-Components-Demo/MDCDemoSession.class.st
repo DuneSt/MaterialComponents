@@ -8,11 +8,11 @@ Internal Representation and Key Implementation Points.
 --------------------
 
     Instance Variables
-	rootComponent:		<aComponent>	The root component of the demo. Should be a MCDemo instance.
+	rootComponent:		<aComponent>	The root component of the demo. Should be a MDCDemo instance.
 
 "
 Class {
-	#name : #MCDemoSession,
+	#name : #MDCDemoSession,
 	#superclass : #WASession,
 	#instVars : [
 		'rootComponent'
@@ -21,11 +21,11 @@ Class {
 }
 
 { #category : #accessing }
-MCDemoSession >> rootComponent [
+MDCDemoSession >> rootComponent [
 	^ rootComponent
 ]
 
 { #category : #accessing }
-MCDemoSession >> rootComponent: anObject [
+MDCDemoSession >> rootComponent: anObject [
 	rootComponent := anObject
 ]

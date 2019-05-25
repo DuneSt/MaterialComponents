@@ -6,7 +6,7 @@ MDC Top App Bar acts as a container for items such as application title, navigat
 
 "
 Class {
-	#name : #MCTopAppBar,
+	#name : #MDCTopAppBar,
 	#superclass : #WATagBrush,
 	#traits : 'TAutoInitBrush + TMDCBrush',
 	#classTraits : 'TAutoInitBrush classTrait + TMDCBrush classTrait',
@@ -14,23 +14,23 @@ Class {
 }
 
 { #category : #options }
-MCTopAppBar >> dense [
+MDCTopAppBar >> dense [
 	self mdcClass: 'top-app-bar--dense'
 ]
 
 { #category : #initialization }
-MCTopAppBar >> initialize [
+MDCTopAppBar >> initialize [
 	super initialize.
 	self mdcClass: 'top-app-bar'.
 	self autoInit: 'MDCTopAppBar'
 ]
 
 { #category : #options }
-MCTopAppBar >> prominent [
+MDCTopAppBar >> prominent [
 	self mdcClass: 'top-app-bar--prominent'
 ]
 
 { #category : #accessing }
-MCTopAppBar >> tag [
+MDCTopAppBar >> tag [
 	^ 'header'
 ]

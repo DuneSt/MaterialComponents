@@ -20,10 +20,10 @@ MaterialComponents class >> mainMenuCommandOn: aBuilder [
 	<worldMenu>
 	(aBuilder item: #MaterialComponents)
 		order: 20;
-		icon: (self mdlIcon scaledToSize: 16@16)
+		icon: (self mdcIcon scaledToSize: 16@16)
 ]
 
 { #category : #accessing }
-MaterialComponents class >> mdlIcon [
+MaterialComponents class >> mdcIcon [
 	^ PNGReadWriter formFromStream: self logoPng readStream
 ]

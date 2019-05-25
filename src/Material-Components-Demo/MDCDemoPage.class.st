@@ -2,42 +2,42 @@
 Description
 --------------------
 
-I am an abstract component. My subclasses represent the main content of the MCDemo.
+I am an abstract component. My subclasses represent the main content of the MDCDemo.
 "
 Class {
-	#name : #MCDemoPage,
-	#superclass : #MCDemoComponent,
+	#name : #MDCDemoPage,
+	#superclass : #MDCDemoComponent,
 	#category : #'Material-Components-Demo-Core'
 }
 
 { #category : #testing }
-MCDemoPage class >> isAbstract [
-	^ self = MCDemoPage
+MDCDemoPage class >> isAbstract [
+	^ self = MDCDemoPage
 ]
 
 { #category : #accessing }
-MCDemoPage class >> pageName [
+MDCDemoPage class >> pageName [
 	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
-MCDemoPage class >> pagesToDisplay [
+MDCDemoPage class >> pagesToDisplay [
 	^ (self allSubclasses reject: #isAbstract) sorted: #priority descending
 ]
 
 { #category : #accessing }
-MCDemoPage class >> pathName [
+MDCDemoPage class >> pathName [
 	"Use to define the URL name"
 
 	^ self pageName copyWithout: $  
 ]
 
 { #category : #accessing }
-MCDemoPage class >> priority [
+MDCDemoPage class >> priority [
 	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
-MCDemoPage >> pathName [
+MDCDemoPage >> pathName [
 	^ self class pathName
 ]

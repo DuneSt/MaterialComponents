@@ -7,7 +7,7 @@ WAHtmlCanvas >> autoInit [
 
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBar [
-	^ self brush: MCTopAppBar new
+	^ self brush: MDCTopAppBar new
 ]
 
 { #category : #'*Material-Components-Components' }
@@ -17,7 +17,7 @@ WAHtmlCanvas >> mcTopAppBar: aBlock [
 
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBarRow [
-	^ self brush: MCTopAppBarRow new 
+	^ self brush: MDCTopAppBarRow new 
 ]
 
 { #category : #'*Material-Components-Components' }
@@ -29,7 +29,7 @@ WAHtmlCanvas >> mcTopAppBarRow: aBlock [
 
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBarSection [
-	^ self brush: MCTopAppBarSection new 
+	^ self brush: MDCTopAppBarSection new 
 ]
 
 { #category : #'*Material-Components-Components' }
@@ -41,7 +41,7 @@ WAHtmlCanvas >> mcTopAppBarSection: aBlock [
 
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mcTopAppBarTitle [
-	^ self brush: MCTopAppBarTitle new 
+	^ self brush: MDCTopAppBarTitle new 
 ]
 
 { #category : #'*Material-Components-Components' }

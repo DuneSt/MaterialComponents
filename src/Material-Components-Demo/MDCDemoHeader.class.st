@@ -2,11 +2,11 @@
 Description
 --------------------
 
-A header for the MDL for seaside demo with all the pages.
+A header for the MDC for seaside demo with all the pages.
 "
 Class {
-	#name : #MCDemoHeader,
-	#superclass : #MCDemoComponent,
+	#name : #MDCDemoHeader,
+	#superclass : #MDCDemoComponent,
 	#instVars : [
 		'activeTab'
 	],
@@ -14,12 +14,12 @@ Class {
 }
 
 { #category : #accessing }
-MCDemoHeader >> possiblePages [
-	^ MCDemoPage pagesToDisplay
+MDCDemoHeader >> possiblePages [
+	^ MDCDemoPage pagesToDisplay
 ]
 
 { #category : #rendering }
-MCDemoHeader >> renderContentOn: html [
+MDCDemoHeader >> renderContentOn: html [
 	self flag: #todo.
 	html html: ' <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
     <div class="mdc-drawer__content">
@@ -46,7 +46,7 @@ MCDemoHeader >> renderContentOn: html [
 						alignStart;
 						with: [ html html: ' <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>'.html image
 								style: 'width: 40px; height: 40px;';
-								url: (MCDemoLibrary urlOf: 'logoSvg').
+								url: (MDCDemoLibrary urlOf: 'logoSvg').
 							html anchor
 								style: 'text-decoration: none; color: rgb(255,255,255);';
 								callback: [ "Just refresh" ];
@@ -73,7 +73,7 @@ topAppBar.listen("MDCTopAppBar:nav", () => {
 ]
 
 { #category : #rendering }
-MCDemoHeader >> renderForkMeOnGithubOn: html [
+MDCDemoHeader >> renderForkMeOnGithubOn: html [
 	html anchor
 		url: 'https://github.com/DuneSt/MaterialComponents';
 		with: [ html image

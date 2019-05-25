@@ -1,16 +1,16 @@
 Class {
-	#name : #MCTopAppBarTitle,
-	#superclass : #MCSpanTag,
+	#name : #MDCTopAppBarTitle,
+	#superclass : #MDCSpanTag,
 	#category : #'Material-Components-Components-Layout'
 }
 
 { #category : #initialization }
-MCTopAppBarTitle >> initialize [
+MDCTopAppBarTitle >> initialize [
 	super initialize.
 	self mdcClass: 'top-app-bar__title'
 ]
 
 { #category : #accessing }
-MCTopAppBarTitle >> tag [
+MDCTopAppBarTitle >> tag [
 	^ 'span'
 ]

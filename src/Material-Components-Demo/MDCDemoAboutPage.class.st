@@ -2,26 +2,26 @@
 Description
 --------------------
 
-A simple page describing what is MC for Seaside.
+A simple page describing what is MDC for Seaside.
 "
 Class {
-	#name : #MCDemoAboutPage,
-	#superclass : #MCDemoPage,
+	#name : #MDCDemoAboutPage,
+	#superclass : #MDCDemoPage,
 	#category : #'Material-Components-Demo-Core'
 }
 
 { #category : #accessing }
-MCDemoAboutPage class >> pageName [
+MDCDemoAboutPage class >> pageName [
 	^ 'About'
 ]
 
 { #category : #accessing }
-MCDemoAboutPage class >> priority [
+MDCDemoAboutPage class >> priority [
 	^ 10
 ]
 
 { #category : #rendering }
-MCDemoAboutPage >> renderContentOn: html [
+MDCDemoAboutPage >> renderContentOn: html [
 	self flag: #todo.
 	html text: 'TODO ABOUT'
 	"html mdlGrid
@@ -43,7 +43,7 @@ MCDemoAboutPage >> renderContentOn: html [
 ]
 
 { #category : #rendering }
-MCDemoAboutPage >> renderMDDescriptionOn: html [
+MDCDemoAboutPage >> renderMDDescriptionOn: html [
 	self flag: #todo.
 	"html section
 		beCell: 12;
@@ -61,7 +61,7 @@ MCDemoAboutPage >> renderMDDescriptionOn: html [
 ]
 
 { #category : #rendering }
-MCDemoAboutPage >> renderMDLDescriptionOn: html [
+MDCDemoAboutPage >> renderMDLDescriptionOn: html [
 	self flag: #todo.
 	"html section
 		beCell: 12;
@@ -80,7 +80,7 @@ MCDemoAboutPage >> renderMDLDescriptionOn: html [
 ]
 
 { #category : #rendering }
-MCDemoAboutPage >> renderSeasideDescriptionOn: html [
+MDCDemoAboutPage >> renderSeasideDescriptionOn: html [
 	self flag: #todo.
 	"html section
 		beCell: 12;

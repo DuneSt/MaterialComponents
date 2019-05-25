@@ -2,7 +2,7 @@
 Description
 --------------------
 
-Root component of MC for Seaside demo.
+Root component of MDC for Seaside demo.
  
 Internal Representation and Key Implementation Points.
 --------------------
@@ -15,8 +15,8 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #MCDemo,
-	#superclass : #MCDemoComponent,
+	#name : #MDCDemo,
+	#superclass : #MDCDemoComponent,
 	#instVars : [
 		'header',
 		'footer',
@@ -27,24 +27,29 @@ Class {
 }
 
 { #category : #testing }
-MCDemo class >> canBeRoot [
+MDCDemo class >> canBeRoot [
 	^ true
 ]
 
 { #category : #initialization }
-MCDemo class >> initialize [
+MDCDemo class >> demoName [
+	^ 'MDCDemo'
+]
+
+{ #category : #initialization }
+MDCDemo class >> initialize [
 	self flag: #todo.
 	self environment at: #WADevelopmentConfiguration ifPresent: [ :class | WAAdmin applicationDefaults removeParent: class instance ].
-	^ (WAAdmin register: self asApplicationAt: 'MCDemo')
-		preferenceAt: #sessionClass put: MCDemoSession;
+	^ (WAAdmin register: self asApplicationAt: self demoName)
+		preferenceAt: #sessionClass put: MDCDemoSession;
 		addLibrary: JQDeploymentLibrary;
-		addLibrary: MCLibrary;
-		addLibrary: MCDemoLibrary;
+		addLibrary: MDCLibrary;
+		addLibrary: MDCDemoLibrary;
 		yourself
 ]
 
 { #category : #'world menu' }
-MCDemo class >> menuCommandOn: aBuilder [
+MDCDemo class >> menuCommandOn: aBuilder [
 	<worldMenu>
 	(aBuilder item: #'Open demo in default browser')
 		order: 2;
@@ -55,7 +60,7 @@ MCDemo class >> menuCommandOn: aBuilder [
 ]
 
 { #category : #'instance creation' }
-MCDemo class >> open [
+MDCDemo class >> open [
 	<script>
 	| port url |
 	WAServerManager default adaptors
@@ -65,86 +70,80 @@ MCDemo class >> open [
 				detect: #isRunning
 				ifFound: [ :anAdaptor | port := anAdaptor server port ]
 				ifNone: [ (ZnZincServerAdaptor port: (port := 8086)) start ] ].
-	url := 'http://localhost:' , port asString , '/MCDemo'.
-	self flag: #pharo6.
-	SystemVersion current major < 7
-		ifTrue: [ self class environment
-				at: #OSProcess
-				ifPresent: [ :class | class command: 'open ' , url ]
-				ifAbsent: [ self inform: 'Open ' , url , ' or install OSProcess.' ] ]
-		ifFalse: [ WebBrowser openOn: url ]
+	url := 'http://localhost:' , port asString , '/' , self demoName.
+	WebBrowser openOn: url
 ]
 
 { #category : #versions }
-MCDemo class >> version [
+MDCDemo class >> version [
 	^ 'dev'
 ]
 
 { #category : #hooks }
-MCDemo >> children [
+MDCDemo >> children [
 	^ { self header. self componentToDisplay. self footer }
 ]
 
 { #category : #accessing }
-MCDemo >> componentInstances [
+MDCDemo >> componentInstances [
 	^ componentInstances
 ]
 
 { #category : #accessing }
-MCDemo >> componentInstances: anObject [
+MDCDemo >> componentInstances: anObject [
 	componentInstances := anObject
 ]
 
 { #category : #accessing }
-MCDemo >> componentToDisplay [
+MDCDemo >> componentToDisplay [
 	"Component instance to display in the application."
 	
 	^ componentToDisplay
 ]
 
 { #category : #accessing }
-MCDemo >> componentToDisplay: anObject [
+MDCDemo >> componentToDisplay: anObject [
 	componentToDisplay := anObject
 ]
 
 { #category : #components }
-MCDemo >> defaultFooter [
+MDCDemo >> defaultFooter [
 	self flag: #todo.
 	^ nil
 ]
 
 { #category : #components }
-MCDemo >> defaultHeader [
-	^ MCDemoHeader new
+MDCDemo >> defaultHeader [
+	^ MDCDemoHeader new
 ]
 
 { #category : #updating }
-MCDemo >> displayInstanceOf: aComponentClass [
+MDCDemo >> displayInstanceOf: aComponentClass [
 	self componentToDisplay: (self componentInstances at: aComponentClass ifAbsentPut: [ aComponentClass new ])
 ]
 
 { #category : #accessing }
-MCDemo >> footer [
+MDCDemo >> footer [
 	^ footer
 ]
 
 { #category : #accessing }
-MCDemo >> footer: anObject [
+MDCDemo >> footer: anObject [
 	footer := anObject
 ]
 
 { #category : #accessing }
-MCDemo >> header [
+MDCDemo >> header [
 	^ header
 ]
 
 { #category : #accessing }
-MCDemo >> header: anObject [
+MDCDemo >> header: anObject [
 	header := anObject
 ]
 
 { #category : #hooks }
-MCDemo >> initialRequest: aRequest [
+MDCDemo >> initialRequest: aRequest [
 	| consumer pageName |
 	super initialRequest: aRequest.
 	consumer := self requestContext consumer.
@@ -165,17 +164,17 @@ MCDemo >> initialRequest: aRequest [
 ]
 
 { #category : #initialization }
-MCDemo >> initialize [
+MDCDemo >> initialize [
 	super initialize.
 	self header: self defaultHeader.
 	self footer: self defaultFooter.
 	self session rootComponent: self.
 	self componentInstances: Dictionary new.
-	self displayInstanceOf: MCDemoPage pagesToDisplay first
+	self displayInstanceOf: MDCDemoPage pagesToDisplay first
 ]
 
 { #category : #rendering }
-MCDemo >> renderContentOn: html [
+MDCDemo >> renderContentOn: html [
 	self flag: #todo.
 	html render: self header.
 	html render: self componentToDisplay.
@@ -183,14 +182,14 @@ MCDemo >> renderContentOn: html [
 ]
 
 { #category : #hooks }
-MCDemo >> style [
+MDCDemo >> style [
 	^ 'body{
 	margin: 0;
 }'
 ]
 
 { #category : #updating }
-MCDemo >> updateRoot: anHtmlRoot [
+MDCDemo >> updateRoot: anHtmlRoot [
 	super updateRoot: anHtmlRoot.
 	anHtmlRoot beHtml5.
 	anHtmlRoot title: 'Demo - Material Components for Seaside'.
@@ -202,40 +201,40 @@ MCDemo >> updateRoot: anHtmlRoot [
 ]
 
 { #category : #updating }
-MCDemo >> updateTabIconRoot: anHtmlRoot [
+MDCDemo >> updateTabIconRoot: anHtmlRoot [
 	anHtmlRoot link
 		relationship: 'apple-touch-icon';
 		attributeAt: 'sizes' put: '120x120';
-		url: (MCDemoLibrary urlOf: 'appleicon120x120Png').
+		url: (MDCDemoLibrary urlOf: 'appleicon120x120Png').
 	#('32x32' '16x16')
 		do: [ :size | 
 			anHtmlRoot link
 				relationship: 'icon';
 				type: 'image/png';
-				url: (MCDemoLibrary urlOf: 'favicon' , size , 'Png');
+				url: (MDCDemoLibrary urlOf: 'favicon' , size , 'Png');
 				attributeAt: 'sizes' put: size ].
 	anHtmlRoot link
 		relationship: 'manifest';
-		url: (MCDemoLibrary urlOf: 'siteWebmanifest').
+		url: (MDCDemoLibrary urlOf: 'siteWebmanifest').
 	anHtmlRoot meta
 		name: 'msapplication-TileColor';
 		content: '#da532c'.
 	anHtmlRoot link
 		relationship: 'mask-icon';
 		attributeAt: 'color' put: '#5bbad5';
-		url: (MCDemoLibrary urlOf: 'safaripinnedtabSvg').
+		url: (MDCDemoLibrary urlOf: 'safaripinnedtabSvg').
 	anHtmlRoot meta
 		name: 'theme-color';
 		content: '#ffffff'
 ]
 
 { #category : #updating }
-MCDemo >> updateUrl: aUrl [
+MDCDemo >> updateUrl: aUrl [
 	super updateUrl: aUrl.
 	aUrl addToPath: (self componentToDisplay pathName)
 ]
 
 { #category : #accessing }
-MCDemo >> version [
+MDCDemo >> version [
 	^ self class version
 ]
