@@ -9,8 +9,9 @@ Class {
 { #category : #initialization }
 MDCDrawer >> initialize [
 	super initialize.
-	self mdcClass: 'drawer'.
-	self autoInit: 'MDCDrawer'
+	self
+		mdcClass: 'drawer';
+		autoInit
 ]
 
 { #category : #accessing }

@@ -21,8 +21,9 @@ MDCTopAppBar >> dense [
 { #category : #initialization }
 MDCTopAppBar >> initialize [
 	super initialize.
-	self mdcClass: 'top-app-bar'.
-	self autoInit: 'MDCTopAppBar'
+	self
+		mdcClass: 'top-app-bar';
+		autoInit
 ]
 
 { #category : #options }
