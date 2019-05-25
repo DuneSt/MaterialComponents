@@ -1,14 +1,14 @@
 Trait {
-	#name : #TAutoInitBrush,
+	#name : #TMDCAutoInitBrush,
 	#category : #'Material-Components-Components'
 }
 
 { #category : #initialization }
-TAutoInitBrush >> autoInit [
+TMDCAutoInitBrush >> autoInit [
 	self autoInit: self class printString
 ]
 
 { #category : #initialization }
-TAutoInitBrush >> autoInit: aModuleName [
+TMDCAutoInitBrush >> autoInit: aModuleName [
 	self attributeAt: 'data-mdc-auto-init' put: aModuleName
 ]
