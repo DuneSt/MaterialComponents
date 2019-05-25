@@ -13,5 +13,5 @@ Class {
 { #category : #initialization }
 MCTopAppBarRow >> initialize [
 	super initialize.
-	self class: 'mdc-top-app-bar__row'
+	self mdcClass: 'top-app-bar__row'
 ]

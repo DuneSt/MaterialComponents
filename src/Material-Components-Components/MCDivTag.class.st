@@ -9,6 +9,8 @@ Use the <div> tag to group block-elements to format them with styles.
 Class {
 	#name : #MCDivTag,
 	#superclass : #WATagBrush,
+	#traits : 'TMDCBrush',
+	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Core'
 }
 

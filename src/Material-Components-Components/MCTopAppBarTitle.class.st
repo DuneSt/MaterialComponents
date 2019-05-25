@@ -1,13 +1,13 @@
 Class {
 	#name : #MCTopAppBarTitle,
-	#superclass : #WATagBrush,
+	#superclass : #MCSpanTag,
 	#category : #'Material-Components-Components-Layout'
 }
 
 { #category : #initialization }
 MCTopAppBarTitle >> initialize [
 	super initialize.
-	self class: 'mdc-top-app-bar__title'
+	self mdcClass: 'top-app-bar__title'
 ]
 
 { #category : #accessing }

@@ -6,16 +6,16 @@ Class {
 
 { #category : #options }
 MCTopAppBarSection >> alignEnd [
-	self class: 'mdc-top-app-bar__section--align-end'
+	self mdcClass: 'top-app-bar__section--align-end'
 ]
 
 { #category : #options }
 MCTopAppBarSection >> alignStart [
-	self class: 'mdc-top-app-bar__section--align-start'
+	self mdcClass: 'top-app-bar__section--align-start'
 ]
 
 { #category : #initialization }
 MCTopAppBarSection >> initialize [
 	super initialize.
-	self class: 'mdc-top-app-bar__section'
+	self mdcClass: 'top-app-bar__section'
 ]
