@@ -22,7 +22,7 @@ MDCDemoPage class >> pageName [
 
 { #category : #accessing }
 MDCDemoPage class >> pagesToDisplay [
-	^ (self allSubclasses reject: #isAbstract) sorted: #priority descending
+	^ (self allSubclasses reject: #isAbstract) sorted: #priority ascending
 ]
 
 { #category : #accessing }
