@@ -134,25 +134,25 @@ MDC.drawer.bindDrawerOpeningToTopAppBar = function () {
     MDC.topAppBar.instance().listen("MDCTopAppBar:nav", () => {
         this.instance().open = !this.instance().open;
     });
-}
+};
 
 /*
 Some code to automatically close a modal drawer when we click on an element (in case it will not refresh the page)
 */
 MDC.drawer.initModalClosingOnClick = function () {
-    var mainContentEl = document.querySelector(".main-content");
+    const mainContentEl = document.querySelector(".main-content");
 
-    this.instance().list.root_.addEventListener("click", (event) => {
+    this.instance().list.root_.addEventListener("click", () => {
         this.instance().open = false;
     });
 
     document.body.addEventListener("MDCDrawer:closed", () => {
-        var elems = mainContentEl.querySelector("input, button");
-        if (elems != null) {
-            elems.focus()
+        const focusable = mainContentEl.querySelector("input, button");
+        if (focusable) {
+            focusable.focus()
         }
     });
-}
+};
 '
 ]
 
