@@ -86,14 +86,6 @@ WAHtmlCanvas >> mdcModalDrawer: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mdcModalDrawerId: aString with: aBlock [
-	^ self mdcDrawer
-		modalWithId: aString;
-		with: aBlock;
-		yourself
-]
-
-{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcNavigationList: aBlock [
 	^ self mdcList
 		navigation;

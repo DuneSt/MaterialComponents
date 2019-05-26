@@ -177,7 +177,9 @@ MDCDemo >> initialize [
 MDCDemo >> renderContentOn: html [
 	self flag: #todo.
 	html render: self header.
-	html render: self componentToDisplay.
+	html div
+		class: 'main-content';
+		with: [ html render: self componentToDisplay ].
 	html autoInit
 ]
 

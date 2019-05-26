@@ -20,15 +20,8 @@ MDCDrawer >> initialize [
 
 { #category : #options }
 MDCDrawer >> modal [
-	^ self modalWithId: canvas nextId
-]
-
-{ #category : #options }
-MDCDrawer >> modalWithId: aString [
-	self id: aString.
 	self mdcClass: 'drawer--modal'.
-	isModal := true.
-	^ aString
+	isModal := true
 ]
 
 { #category : #accessing }
@@ -39,5 +32,8 @@ MDCDrawer >> tag [
 { #category : #public }
 MDCDrawer >> with: aBlock [
 	super with: aBlock.
-	isModal ifTrue: [ canvas div class: 'mdc-drawer-scrim' ]
+	isModal ifFalse: [ ^ self ].
+	
+	canvas div class: 'mdc-drawer-scrim'.
+	canvas document addLoadScript: 'MDC.drawer.initModalClosingOnClick()' js
 ]
