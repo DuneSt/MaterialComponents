@@ -8,7 +8,6 @@ Class {
 	#name : #MDCDemoPageWithList,
 	#superclass : #MDCDemoPage,
 	#instVars : [
-		'list',
 		'selectedScreen'
 	],
 	#category : #'Material-Components-Demo-Core'
@@ -17,24 +16,6 @@ Class {
 { #category : #testing }
 MDCDemoPageWithList class >> isAbstract [
 	^ self = MDCDemoPageWithList
-]
-
-{ #category : #components }
-MDCDemoPageWithList >> defaultList [
-	self flag: #todo.
-	^ "(MDLNestedList elements: self sortedScreens)
-		iconBlock: [ :class :renderer | 
-			renderer anchor
-				class: 'mdl-list-icon';
-				callback: [ self select: class ];
-				with: [ renderer image
-						url: class iconUrl ] ];
-		listStyle: #demo;
-		format: #title;
-		helpBlock: #description;
-		actionBlock: [ :screen | self select: screen ];
-		selectedEntity: self selectedScreen class;
-		yourself" nil
 ]
 
 { #category : #testing }
@@ -57,44 +38,27 @@ MDCDemoPageWithList >> initialRequest: aRequest [
 	self sortedScreens
 		detect: [ :each | each pathName asLowercase = pageName ]
 		ifFound: [ :class | 
-			self select: class.
+			self selectClass: class.
 
 			"If we find a page, we pop the subpart of the path corresponding to the page."
 			consumer next ]
 ]
 
-{ #category : #initialization }
-MDCDemoPageWithList >> initialize [
-	super initialize.
-	self list: self defaultList
-]
-
-{ #category : #accessing }
-MDCDemoPageWithList >> list [
-	^ list
-]
-
-{ #category : #accessing }
-MDCDemoPageWithList >> list: anObject [
-	list := anObject
-]
-
 { #category : #rendering }
 MDCDemoPageWithList >> renderContentOn: html [
-	self flag: #todo.
-	"html leftPanel
-		class: 'mdl-components__nav';
-		shadow: 4;
+	html mdcLeftPanel
+		class: 'mdc-components__nav';
 		with: [ html
-				render: self defaultList;
-				leftPanelResizer ]."
-	html
-		mdcList: [ self sortedScreens
-				do: [ :class | 
-					html mdcAnchorListItem
-						callback: [ self select: class ];
-						isActiveIf: self selectedScreen class = class;
-						with: [ "html image url: class iconUrl." html text: class title ] ] ].
+				mdcList: [ self sortedScreens
+						do: [ :class | 
+							html mdcAnchorListItem
+								callback: [ self selectClass: class ];
+								isActiveIf: self selectedScreen class = class;
+								with: [ html image
+										mdcListItemGraphic;
+										url: class iconUrl.
+									html mdcListItemText: class title ] ] ].
+			html mdcLeftPanelResizer ].
 	html div
 		class: 'mdc-components__pages';
 		with: [ self renderPageContentOn: html ]
@@ -127,7 +91,7 @@ MDCDemoPageWithList >> screens [
 ]
 
 { #category : #actions }
-MDCDemoPageWithList >> select: screen [
+MDCDemoPageWithList >> selectClass: screen [
 	self
 		selectedScreen:
 			(self selectedScreen class = screen

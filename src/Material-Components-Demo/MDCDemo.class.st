@@ -179,6 +179,7 @@ MDCDemo >> renderContentOn: html [
 	html render: self header.
 	html div
 		class: 'main-content';
+		class: 'mdc-components';
 		mdcTopAppBarFixedAdjust;
 		with: [ html render: self componentToDisplay ].
 	html autoInit
