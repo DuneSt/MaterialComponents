@@ -22,8 +22,10 @@ MDCDemoHeader >> possiblePages [
 MDCDemoHeader >> renderContentOn: html [
 	self flag: #todo.	"finish header"
 	self flag: #todo.	"Add icons to drawer?"
-	html
-		mdcModalDrawer: [ html
+	html mdcDrawer
+		modal;
+		closeModalWhenElementIsSelected;
+		with: [ html
 				mdcDrawerContent: [ html
 						mdcNavigationList: [ self possiblePages
 								do: [ :aClass | 

@@ -9,6 +9,11 @@ Class {
 	#category : #'Material-Components-Components-Layout'
 }
 
+{ #category : #options }
+MDCDrawer >> closeModalWhenElementIsSelected [
+	canvas document addLoadScript: 'MDC.drawer.initModalClosingOnClick()' js
+]
+
 { #category : #initialization }
 MDCDrawer >> initialize [
 	super initialize.
@@ -35,5 +40,4 @@ MDCDrawer >> with: aBlock [
 	isModal ifFalse: [ ^ self ].
 	
 	canvas div class: 'mdc-drawer-scrim'.
-	canvas document addLoadScript: 'MDC.drawer.initModalClosingOnClick()' js
 ]
