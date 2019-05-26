@@ -1,6 +1,6 @@
 Class {
 	#name : #MDCTopAppBarNavigationIcon,
-	#superclass : #WAAnchorTag,
+	#superclass : #WAButtonTag,
 	#traits : 'TMDCBrush',
 	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Layout'
