@@ -5,6 +5,7 @@ Trait {
 
 { #category : #initialization }
 TMDCAutoInitBrush >> autoInit [
+	self flag: #todo.
 	self autoInit: self class printString
 ]
 

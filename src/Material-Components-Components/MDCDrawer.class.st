@@ -16,6 +16,7 @@ MDCDrawer >> closeModalWhenElementIsSelected [
 
 { #category : #initialization }
 MDCDrawer >> initialize [
+	self flag: #todo.
 	super initialize.
 	isModal := false.
 	self

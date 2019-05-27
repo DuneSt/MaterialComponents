@@ -6,6 +6,7 @@ Class {
 
 { #category : #initialization }
 MDCTopAppBarTitle >> initialize [
+	self flag: #todo.
 	super initialize.
 	self mdcClass: 'top-app-bar__title'
 ]

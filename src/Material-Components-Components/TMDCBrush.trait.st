@@ -5,5 +5,6 @@ Trait {
 
 { #category : #accessing }
 TMDCBrush >> mdcClass: aString [
+	self flag: #todo.
 	self class: 'mdc-' , aString
 ]

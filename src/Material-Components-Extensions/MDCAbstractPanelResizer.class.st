@@ -16,6 +16,13 @@ MDCAbstractPanelResizer >> initMethodName [
 	^ self subclassResponsibility
 ]
 
+{ #category : #initialization }
+MDCAbstractPanelResizer >> initialize [
+
+	self flag: #todo.
+	super initialize.
+]
+
 { #category : #accessing }
 MDCAbstractPanelResizer >> panelClass [
 	^ self subclassResponsibility

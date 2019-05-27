@@ -8,6 +8,7 @@ Class {
 
 { #category : #initialization }
 MDCListItemText >> initialize [
+	self flag: #todo.
 	super initialize.
 	self mdcClass: 'list-item__text'
 ]

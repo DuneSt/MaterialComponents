@@ -20,6 +20,7 @@ MDCTopAppBar >> dense [
 
 { #category : #initialization }
 MDCTopAppBar >> initialize [
+	self flag: #todo.
 	super initialize.
 	self
 		mdcClass: 'top-app-bar';

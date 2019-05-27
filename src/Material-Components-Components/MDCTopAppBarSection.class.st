@@ -16,6 +16,7 @@ MDCTopAppBarSection >> alignStart [
 
 { #category : #initialization }
 MDCTopAppBarSection >> initialize [
+	self flag: #todo.
 	super initialize.
 	self mdcClass: 'top-app-bar__section'
 ]

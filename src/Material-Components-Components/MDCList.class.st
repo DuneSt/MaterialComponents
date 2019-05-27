@@ -11,6 +11,7 @@ Class {
 
 { #category : #initialization }
 MDCList >> initialize [
+	self flag: #todo.
 	super initialize.
 	self autoInit.
 	self mdcClass: 'list'

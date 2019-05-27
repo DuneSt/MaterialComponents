@@ -8,5 +8,6 @@ Class {
 
 { #category : #accessing }
 MDCListItem >> tag [
+	self flag: #todo.
 	^ 'li'
 ]

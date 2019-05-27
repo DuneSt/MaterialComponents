@@ -16,6 +16,12 @@ MDCLeftPanelResizer >> initMethodName [
 	^ 'MDC.panels.initLeftResizers()'
 ]
 
+{ #category : #initialization }
+MDCLeftPanelResizer >> initialize [
+	super initialize.
+	self flag: #todo.
+]
+
 { #category : #accessing }
 MDCLeftPanelResizer >> panelClass [
 	^ 'resizer-left'

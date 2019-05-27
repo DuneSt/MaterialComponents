@@ -7,6 +7,7 @@ Trait {
 
 { #category : #initialization }
 TMDCListItem >> initialize [
+	self flag: #todo.
 	super initialize.
 	self mdcClass: 'list-item'
 ]

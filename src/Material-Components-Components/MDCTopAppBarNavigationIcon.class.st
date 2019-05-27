@@ -8,6 +8,7 @@ Class {
 
 { #category : #initialization }
 MDCTopAppBarNavigationIcon >> initialize [
+	self flag: #todo.
 	super initialize.
 	self mdcClass: 'top-app-bar__navigation-icon'.
 	self class: 'material-icons'
