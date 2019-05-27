@@ -306,7 +306,6 @@ MDCDemoLibrary >> mcDemoCss [
 .mdc-components .mdc-components__pages {
     display: inline-block;
     -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
     flex-grow: 1;
     overflow: hidden;
 }
@@ -331,7 +330,29 @@ MDCDemoLibrary >> mcDemoCss [
     background: url(''/files/MDCDemoLibrary/compsBackground.png'') no-repeat top left/contain;
 }
 
+.mdc-docs-toc, .mdc-component-title {
+    margin-bottom: 60px;
+    margin-left: 32px;
+    text-align: justify;
+}
 
+.mdc-component-title h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 80px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.54);
+    line-height: 40px;
+}
+
+.mdc-component-title p {
+    font-family: ''Roboto'',''Helvetica'',''Arial'',sans-serif;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    max-width: 640px;
+    line-height: 24px;
+}
 
 
 
@@ -432,30 +453,6 @@ MDCDemoLibrary >> mcDemoCss [
     color: rgba(0,0,0,0.54);
     letter-spacing: -.02em;
     text-transform: uppercase;
-}
-
-
-
-
-.mdl-components .docs-toc, .mdl-components .component-title {
-    margin-bottom: 60px;
-    margin-left: 32px;
-}
-
-.mdl-components .component-title h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 80px;
-    text-transform: uppercase;
-    color: rgba(0,0,0,.54);
-}
-
-.mdl-components .component-title p {
-    font-family: ''Roboto'',''Helvetica'',''Arial'',sans-serif;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    font-size: 13px;
-    max-width: 640px;
 }
 
 /* SCREENS */

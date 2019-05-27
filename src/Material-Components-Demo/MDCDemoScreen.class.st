@@ -102,17 +102,15 @@ MDCDemoScreen >> renderContentOn: html [
 	self flag: #todo.
 	html div
 		mdcClass: 'components__page';
-		with: [ "html
-				mdlCell: [ html div
-						class: 'component-title';
-						mdlTypographyTextJustify;
-						with: [ html heading
-								level3;
-								with: self title.
-							html paragraph: self description.
-							self renderWarningMessageOn: html ].
-					self renderScreenContentOn: html ]
-				size: 12 "]
+		with: [ html div
+				mdcClass: 'component-title';
+				"mdlTypographyTextJustify;"
+				with: [ html heading
+						level3;
+						with: self title.
+					html paragraph: self description.
+					"self renderWarningMessageOn: html" ].
+			"self renderScreenContentOn: html" ]
 ]
 
 { #category : #rendering }
