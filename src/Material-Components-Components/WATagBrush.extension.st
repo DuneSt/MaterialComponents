@@ -1,6 +1,11 @@
 Extension { #name : #WATagBrush }
 
 { #category : #'*Material-Components-Components' }
+WATagBrush >> canvas [
+	^ canvas
+]
+
+{ #category : #'*Material-Components-Components' }
 WATagBrush >> mdcClass: aString [
 	self flag: #todo.
 	self class: 'mdc-' , aString
