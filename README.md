@@ -1,4 +1,4 @@
-# MaterialComponents for Seaside <img src="https://raw.githubusercontent.com/DuneSt/MaterialComponents/development/resources/logos/logoFull.png" width="50">
+# MaterialComponents for Seaside <img src="https://raw.githubusercontent.com/DuneSt/MaterialComponents/master/resources/logos/logoFull.png" width="50">
 
 Master [![Build Status](https://travis-ci.org/DuneSt/MaterialComponents.svg?branch=master)](https://travis-ci.org/DuneSt/MaterialComponents)| Development [![Build Status](https://travis-ci.org/DuneSt/MaterialComponents.svg?branch=development)](https://travis-ci.org/DuneSt/MaterialComponents)
 
