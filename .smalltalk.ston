@@ -1,0 +1,13 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'MaterialComponents',
+      #directory : 'src'
+    }
+  ],  
+  #testing : {
+    #coverage : {
+      #packages : [ 'Material-Components-Components' ]
+    }
+  }
+}
