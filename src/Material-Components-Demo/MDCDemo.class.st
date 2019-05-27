@@ -179,17 +179,10 @@ MDCDemo >> renderContentOn: html [
 	html render: self header.
 	html div
 		class: 'main-content';
-		class: 'mdc-components';
+		mdcClass: 'components';
 		mdcTopAppBarFixedAdjust;
 		with: [ html render: self componentToDisplay ].
 	html autoInit
-]
-
-{ #category : #hooks }
-MDCDemo >> style [
-	^ 'body{
-	margin: 0;
-}'
 ]
 
 { #category : #updating }
@@ -201,7 +194,7 @@ MDCDemo >> updateRoot: anHtmlRoot [
 		attributeAt: 'name' put: 'viewport';
 		content: 'width=device-width, initial-scale=1'.
 	self updateTabIconRoot: anHtmlRoot.
-	anHtmlRoot javascript add: 'hljs.initHighlightingOnLoad();'
+	anHtmlRoot javascript add: 'hljs.initHighlightingOnLoad();' js
 ]
 
 { #category : #updating }

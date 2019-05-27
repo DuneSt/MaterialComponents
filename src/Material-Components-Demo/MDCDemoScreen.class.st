@@ -100,9 +100,9 @@ MDCDemoScreen >> render: componentsMap on: html [
 { #category : #rendering }
 MDCDemoScreen >> renderContentOn: html [
 	self flag: #todo.
-	"html mdlGrid
-		class: #'mdl-components__page';
-		with: [ html
+	html div
+		mdcClass: 'components__page';
+		with: [ "html
 				mdlCell: [ html div
 						class: 'component-title';
 						mdlTypographyTextJustify;
@@ -112,7 +112,7 @@ MDCDemoScreen >> renderContentOn: html [
 							html paragraph: self description.
 							self renderWarningMessageOn: html ].
 					self renderScreenContentOn: html ]
-				size: 12 ]"
+				size: 12 "]
 ]
 
 { #category : #rendering }

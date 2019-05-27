@@ -47,7 +47,7 @@ MDCDemoPageWithList >> initialRequest: aRequest [
 { #category : #rendering }
 MDCDemoPageWithList >> renderContentOn: html [
 	html mdcLeftPanel
-		class: 'mdc-components__nav';
+		mdcClass: 'components__nav';
 		with: [ html
 				mdcList: [ self sortedScreens
 						do: [ :class | 
@@ -60,7 +60,7 @@ MDCDemoPageWithList >> renderContentOn: html [
 									html mdcListItemText: class title ] ] ].
 			html mdcLeftPanelResizer ].
 	html div
-		class: 'mdc-components__pages';
+		mdcClass: 'components__pages';
 		with: [ self renderPageContentOn: html ]
 ]
 

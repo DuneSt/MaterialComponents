@@ -9,3 +9,8 @@ Class {
 	#superclass : #MDCDemoScreen,
 	#category : #'Material-Components-Demo-Components'
 }
+
+{ #category : #testing }
+MDCComponentDemo class >> isAbstract [
+	^ self = MDCComponentDemo
+]
