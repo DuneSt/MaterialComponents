@@ -1,3 +1,9 @@
+"
+Description
+--------------------
+
+I am a screen containing divers demo on MDC buttons.
+"
 Class {
 	#name : #MDCButtonDemoScreen,
 	#superclass : #MDCComponentDemo,

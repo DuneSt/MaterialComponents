@@ -39,7 +39,7 @@ BaselineOfMaterialComponents >> baseline: spec [
 				"group: 'widgets' with: #('Material-Components-Widgets');"
 				group: 'extensions' with: #('Material-Components-Extensions');
 				group: 'utils' with: #('Material-Components-Utils');
-				group: 'default' with: #('core' 'tests' 'demo');
+				group: 'default' with: #('core' "'tests'" 'demo');
 				group: 'demo' with: #('Material-Components-Demo');
 				group: 'dev' with: #('default' 'Material-Components-Dev')";
 				group: 'tests' with: #('Material-Components-Components-Tests' 'Material-Components-Widgets-Tests' 'Material-Components-Extensions-Tests')" ]
