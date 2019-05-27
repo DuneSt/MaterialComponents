@@ -354,6 +354,56 @@ MDCDemoLibrary >> mcDemoCss [
     line-height: 24px;
 }
 
+/* SCREENS */
+
+.mdc-snippet-group {
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 84px;
+}
+
+.mdc-snippet-group .mdc-snippet-demos, .mdc-snippet-group .mdc-snippet-captions {
+    display: table-row;
+}
+
+.mdc-snippet-group .mdc-snippet-demos .mdc-snippet-padding {
+    width: 50%;
+}
+
+.mdc-snippet-group .mdc-snippet-padding, .mdc-snippet-group .mdc-snippet-caption, .mdc-snippet-group .mdc-snippet-demo {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.mdc-snippet-group .mdc-snippet-demo {
+    padding: 0 40px 40px;
+    text-align: center;
+}
+
+.mdc-snippet-group .mdc-snippet-demo .mdc-snippet-demo-container {
+    text-align: left;
+    display: inline-block;
+}
+
+.mdc-snippet-group .mdc-snippet-captions {
+    background-color: #fff;
+    height: 48px;
+}
+
+.mdc-snippet-group .mdc-snippet-caption {
+    font-size: 13px;
+    padding: 0 40px;
+    white-space: nowrap;
+    text-align: center;
+    position: relative;
+}
+
+.mdc-snippet-group .mdc-snippet-code {
+    position: relative;
+    overflow: hidden;
+}
+
 
 
 /* Specific demos */
@@ -386,6 +436,22 @@ MDCDemoLibrary >> mcDemoCss [
 
 
 
+
+.mdc-snippet-group.is-full-width .mdc-snippet-padding {
+    width: 0;
+    padding: 8px;
+    margin: 0;
+}
+
+.mdc-snippet-group.is-full-width .mdc-snippet-demos > .mdc-snippet-demo {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mdl-components .snippet-group.is-full-width .snippet-demo-container {
+    width: 100%;
+}
 
 
 
@@ -463,89 +529,6 @@ MDCDemoLibrary >> mcDemoCss [
     text-transform: uppercase;
 }
 
-/* SCREENS */
-
-.snippet-group {
-    margin-left: -16px;
-    margin-right: -16px;
-    margin-bottom: 84px;
-}
-
-.snippet-group ul { 
-    list-style-type: none;
-    font-size: 13px;
-}
-
-.snippet-group .snippet-header {
-    display: table;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-}
-
-.mdl-components .snippet-group.is-full-width .snippet-demo-padding {
-    width: 0;
-    padding: 8px;
-    margin: 0;
-}
-
-.mdl-components  .snippet-group.is-full-width .snippet-demos > .snippet-demo {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.mdl-components  .snippet-group.is-full-width .snippet-demo-container {
-    width: 100%;
-}
-
-.snippet-group .snippet-demos, .snippet-group .snippet-captions {
-    display: table-row;
-}
-
-.snippet-group .snippet-demos .snippet-demo-padding {
-    width: 50%;
-}
-
-.snippet-group .snippet-demo-padding, .snippet-group .snippet-caption, .snippet-group .snippet-caption-padding {
-    display: table-cell;
-    vertical-align: middle;
-    margin: 0;
-}
-
-.snippet-group .snippet-demo {
-    padding: 0 40px 40px;
-}
-
-.snippet-group .snippet-demo {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-}
-
-.snippet-group .snippet-demo .snippet-demo-container {
-    text-align: left;
-    display: inline-block;
-}
-
-.snippet-group .snippet-captions {
-    background-color: #fff;
-    height: 48px;
-}
-
-.snippet-group .snippet-caption {
-    font-size: 13px;
-    padding: 0 40px;
-    white-space: nowrap;
-    text-align: center;
-    position: relative;
-}
-
-.snippet-group .snippet-code {
-    position: relative;
-    overflow: hidden;
-}
 
 code:hover::before {
     display:inline-block;

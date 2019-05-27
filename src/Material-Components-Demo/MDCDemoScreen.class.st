@@ -55,35 +55,32 @@ MDCDemoScreen >> pathName [
 
 { #category : #rendering }
 MDCDemoScreen >> render: componentsMap fullWidth: aBoolean on: html [
-	self flag: #todo.
 	html div
-		class: 'snippet-group';
-		class: 'is-full-width' if: aBoolean;
-		with: [ html div
-				class: 'snippet-header';
-				with: [ html div
-						class: 'snippet-demos';
-						with: [ html div class: 'snippet-demo-padding'.
+		mdcClass: 'snippet-group';
+		class: 'mdc-is-full-width' if: aBoolean;
+		with: [ html div: [ html div
+						mdcClass: 'snippet-demos';
+						with: [ html mdcDemoPadding.
 							componentsMap
 								valuesDo: [ :symbol | 
 									html div
-										class: 'snippet-demo';
+										mdcClass: 'snippet-demo';
 										with: [ html div
-												class: 'snippet-demo-container';
-												class: (symbol copyWithout: $:);
+												mdcClass: 'snippet-demo-container';
+												mdcClass: (symbol copyWithout: $:);
 												with: [ self perform: symbol with: html ] ] ].
-							html div class: 'snippet-demo-padding' ].
+							html mdcDemoPadding ].
 					html div
-						class: 'snippet-captions';
-						with: [ html div class: 'snippet-caption-padding'.
+						mdcClass: 'snippet-captions';
+						with: [ html mdcDemoPadding.
 							componentsMap
 								keysDo: [ :label | 
 									html div
-										class: 'snippet-caption';
+										mdcClass: 'snippet-caption';
 										with: label ].
-							html div class: 'snippet-caption-padding' ] ].
+							html mdcDemoPadding ] ].
 			html div
-				class: 'snippet-code';
+				mdcClass: 'snippet-code';
 				with: [ componentsMap
 						valuesDo: [ :symbol | 
 							html
@@ -99,7 +96,6 @@ MDCDemoScreen >> render: componentsMap on: html [
 
 { #category : #rendering }
 MDCDemoScreen >> renderContentOn: html [
-	self flag: #todo.
 	html div
 		mdcClass: 'components__page';
 		with: [ html div
@@ -108,7 +104,7 @@ MDCDemoScreen >> renderContentOn: html [
 						level3;
 						with: self title.
 					html paragraph: self description.
-					"self renderWarningMessageOn: html" ].
+					self renderWarningMessageOn: html ].
 			self renderScreenContentOn: html ]
 ]
 
@@ -120,6 +116,7 @@ MDCDemoScreen >> renderScreenContentOn: html [
 { #category : #rendering }
 MDCDemoScreen >> renderTocOn: html [
 	self flag: #todo.
+	1halt.
 	"html div
 		class: 'docs-toc';
 		with: [ html unorderedList
@@ -136,7 +133,7 @@ MDCDemoScreen >> renderTocOn: html [
 MDCDemoScreen >> renderWarningMessageOn: html [
 	self flag: #todo.
 	self warningMessage ifNil: [ ^ self ].
-	
+	1halt.
 	html div
 		class: 'mdl-demo-warning';
 		mdlTypographyBody2;
