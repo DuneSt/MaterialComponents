@@ -104,13 +104,12 @@ MDCDemoScreen >> renderContentOn: html [
 		mdcClass: 'components__page';
 		with: [ html div
 				mdcClass: 'component-title';
-				"mdlTypographyTextJustify;"
 				with: [ html heading
 						level3;
 						with: self title.
 					html paragraph: self description.
 					"self renderWarningMessageOn: html" ].
-			"self renderScreenContentOn: html" ]
+			self renderScreenContentOn: html ]
 ]
 
 { #category : #rendering }

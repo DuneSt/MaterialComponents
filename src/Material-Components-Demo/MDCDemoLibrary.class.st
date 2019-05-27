@@ -356,8 +356,16 @@ MDCDemoLibrary >> mcDemoCss [
 
 
 
+/* Specific demos */
 
+/* Buttons */
+.mdc-demo-button-shaped {
+    border-radius: 18px;
+}
 
+.mdc-demo-button-shaped.mdc-button--dense {
+    border-radius: 16px;
+}
 
 
 

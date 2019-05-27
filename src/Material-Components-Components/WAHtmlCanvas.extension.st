@@ -19,6 +19,30 @@ WAHtmlCanvas >> mdcAnchorListItem: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcButton [
+	^ self brush: MDCButton new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcButton: aBlock [
+	^ self mdcButton
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcButtonLabel [
+	^ self brush: MDCButtonLabel new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcButtonLabel: aBlock [
+	^ self mdcButtonLabel
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcDrawer [
 	^ self brush: MDCDrawer new
 ]
@@ -38,6 +62,18 @@ WAHtmlCanvas >> mdcDrawerContent [
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcDrawerContent: aBlock [
 	^ self mdcDrawerContent
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcIcon [
+	^ self brush: MDCIcon new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcIcon: aBlock [
+	^ self mdcIcon
 		with: aBlock
 		yourself
 ]
