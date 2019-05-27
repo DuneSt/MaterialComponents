@@ -43,6 +43,13 @@ MDCDemoScreen class >> title [
 	^ self subclassResponsibility
 ]
 
+{ #category : #'as yet unclassified' }
+MDCDemoScreen >> codeOf: aSymbol [
+	"I take a method selector I contains and return his source code without the declaration."
+
+	^ String streamContents: [ :stream | (self class sourceCodeAt: aSymbol) lines allButFirst do: [ :ea | stream nextPutAll: ea ] separatedBy: [ stream nextPutAll: GRPlatform current newline ] ]
+]
+
 { #category : #accessing }
 MDCDemoScreen >> description [
 	^ self class description
