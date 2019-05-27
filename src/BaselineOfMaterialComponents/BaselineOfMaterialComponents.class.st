@@ -17,13 +17,14 @@ BaselineOfMaterialComponents >> baseline: spec [
 			self
 				seaside3: spec;
 				fileLibraryHelper: spec;
-				materialColors: spec.	
+				materialColors: spec;
+				seasideGenerationTester: spec.	
 			
 			"Packages"
 			spec
 				package: 'Material-Components-Components' with: [ spec requires: #('MaterialColors' 'Seaside3') ];
-				"package: 'Material-Components-Components-Tests' with: [ spec requires: #('components') ];
-				package: 'Material-Components-Widgets' with: [ spec requires: #('components') ];
+				package: 'Material-Components-Components-Tests' with: [ spec requires: #('components' 'SeasideGenerationTester') ];
+				"package: 'Material-Components-Widgets' with: [ spec requires: #('components') ];
 				package: 'Material-Components-Widgets-Tests' with: [ spec requires: #('widgets' 'Material-Components-Components-Tests') ];
 				"package: 'Material-Components-Extensions' with: [ spec requires: #('utils' 'components') ];"
 				package: 'Material-Components-Extensions-Tests' with: [ spec requires: #('extensions' 'Material-Components-Components-Tests') ];"
@@ -39,10 +40,10 @@ BaselineOfMaterialComponents >> baseline: spec [
 				"group: 'widgets' with: #('Material-Components-Widgets');"
 				group: 'extensions' with: #('Material-Components-Extensions');
 				group: 'utils' with: #('Material-Components-Utils');
-				group: 'default' with: #('core' "'tests'" 'demo');
+				group: 'default' with: #('core' 'tests' 'demo');
 				group: 'demo' with: #('Material-Components-Demo');
-				group: 'dev' with: #('default' 'Material-Components-Dev')";
-				group: 'tests' with: #('Material-Components-Components-Tests' 'Material-Components-Widgets-Tests' 'Material-Components-Extensions-Tests')" ]
+				group: 'dev' with: #('default' 'Material-Components-Dev');
+				group: 'tests' with: #('Material-Components-Components-Tests' "'Material-Components-Widgets-Tests' 'Material-Components-Extensions-Tests'") ]
 ]
 
 { #category : #dependencies }
@@ -75,4 +76,9 @@ BaselineOfMaterialComponents >> seaside3: spec [
 		with: [ spec
 				loads: #('Core' 'JQuery' 'Zinc');
 				repository: 'github://SeasideSt/Seaside:v3.3.x/repository' ]
+]
+
+{ #category : #dependencies }
+BaselineOfMaterialComponents >> seasideGenerationTester: spec [
+	spec baseline: 'SeasideGenerationTester' with: [ spec repository: 'github://DuneSt/SeasideGenerationTester:v1.x.x/src' ]
 ]
