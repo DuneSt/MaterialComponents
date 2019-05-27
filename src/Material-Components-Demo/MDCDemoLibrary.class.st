@@ -230,6 +230,7 @@ MDCDemoLibrary >> mcDemoCss [
     display: -ms-flexbox;
     display: flex;
     background: #fafafa;
+    color: #757575;
 }
 
 .mdc-components .mdc-components__nav {
@@ -239,9 +240,96 @@ MDCDemoLibrary >> mcDemoCss [
     z-index: 2;
 }
 
+.mdc-doc{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
 
+.mdc-doc section{
+    padding: 50px 100px;
+    text-align: justify;
+}
 
+.mdc-doc a {
+    text-decoration: none;
+    font-weight: 800;
+}
 
+.mdc-doc p {
+    font-size: 14px;
+    letter-spacing: 0;
+    margin: 0 0 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 0;
+}
+
+.mdc-doc pre {
+    margin: 0;
+}
+
+.mdc-doc dl {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.mdc-doc dl dt {
+    text-align: right;
+    vertical-align: top;
+    display: inline-table;
+    margin-right: 24px;
+    line-height: 2em;
+    min-width: 100px;
+    font-weight: 700;
+}
+
+.mdc-doc dl dd {
+    line-height: 2em;
+    vertical-align: top;
+    width: 700px;
+    margin: 0 0 0 24px;
+}
+
+.mdc-components .mdc-components__pages {
+    display: inline-block;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.mdc-components .mdc-components__page {
+    min-height: 1000px;
+}
+
+.mdc-components__page-index{
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 64px;
+}
+
+.mdc-components-img {
+    position: absolute;
+    margin-top: 24px;
+    left: 40px;
+    height: 90%;
+    width: 90%;
+    max-height: 600px;
+    background: url(''/files/MDCDemoLibrary/compsBackground.png'') no-repeat top left/contain;
+}
 
 
 
@@ -282,85 +370,21 @@ MDCDemoLibrary >> mcDemoCss [
 	min-height: 48px;
 }
 
-.mdl-components__page-index{
-    box-sizing: border-box;
-    position: relative;
-    padding-top: 64px;
-}
-
-.mdl-components-img {
-    position: absolute;
-    margin-top: 24px;
-    left: 40px;
-    height: 90%;
-    width: 90%;
-    max-height: 600px;
-    background: url(''/files/MDCDemoLibrary/compsBackground.png'') no-repeat top left/contain;
-}
-
 .mdl-demo-warning{
     color: rgba(255,152,0 ,1);
 }
-	
-.mdl-doc{
-    width: 100%;
-}
 
-.mdl-doc section{
-    padding: 50px 100px;
-    text-align: justify;
-}
 
-.mdl-doc a {
-    text-decoration: none;
-    font-weight: 800;
-}
 
 .mdl-illustration { 
     height: 300px;
     margin: auto;
 }
 
-.mdl-doc pre {
-    margin: 0;
-}
-
-.mdl-doc dl {
-    width: 100%;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-}
-
 .mdl-layout.is-small-screen .mdl-doc dl {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-}
-	
-.mdl-doc dl dt {
-    text-align: right;
-    vertical-align: top;
-    display: inline-table;
-    margin-right: 24px;
-    line-height: 2em;
-    min-width: 100px;
-}
-
-.mdl-doc dl dd {
-    line-height: 2em;
-    vertical-align: top;
-    width: 700px;
-    margin: 0 0 0 24px;
 }
 
 .mdl-layout.is-small-screen .mdl-doc dd, .mdl-layout.is-small-screen .mdl-doc dt {
@@ -411,17 +435,7 @@ MDCDemoLibrary >> mcDemoCss [
 }
 
 
-.mdl-components .mdl-components__pages {
-    display: inline-block;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    overflow: auto;
-}
 
-.mdl-components .mdl-components__page {
-    min-height: 1000px;
-}
 
 .mdl-components .docs-toc, .mdl-components .component-title {
     margin-bottom: 60px;
@@ -603,27 +617,7 @@ code.nosupport::before {
     max-width: 260px;
 }
 
-
-
 /* LISTS */
-
-.nestedList.demo .listContent .listContainer .expList img{
-	height: 46px;
-	width: 46px;
-	border-radius: 50%;
-	box-shadow: 0 3px 4px 0 rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.2),0 1px 8px 0 rgba(0,0,0,.12);
-}
-
-.nestedList.demo .listContainer a { 
-    font-size: 16px;
-    font-weight: inherit;
-    color: rgba(0,0,0,.66);
-}
-
-.nestedList.demo .listContainer a .item { 
-    line-height: 60px;
-}
-
 .nestedList .listContent .listContainer .expList li:nth-child(2n) {
     background-color: rgba(245,245,245 ,1);
 }

@@ -66,17 +66,16 @@ MDCDemoPageWithList >> renderContentOn: html [
 
 { #category : #rendering }
 MDCDemoPageWithList >> renderPageContentOn: html [
-	self flag: #todo.
 	self selectedScreen
 		ifNil: [ html section
-				class: 'mdc-doc';
-				class: 'mdc-components__page';
-				class: 'mdc-components__page-index';
-				with: [ "html section
-						beCell: 12;
-						with: [ html
+				mdcClass: 'doc';
+				mdcClass: 'components__page';
+				mdcClass: 'components__page-index';
+				with: [ html
+						section: [ html
 								definitionList: [ html definitionTerm: self class pageName.
-									html definitionData: [ self renderPageDescriptionOn: html ] ] ]." html div class: 'mdl-components-img' ] ]
+									html definitionData: [ self renderPageDescriptionOn: html ] ] ].
+					html div mdcClass: 'components-img' ] ]
 		ifNotNil: [ :screen | html render: screen ]
 ]
 
