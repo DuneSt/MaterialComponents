@@ -12,7 +12,7 @@ This project has as first goal to bind the Google's Material Components Web proj
 
 - [Documentation](#documentation)
   * [Version management](#version-management)
-  * [Install](#install)
+  * [Installation](#installation)
   * [Getting started](#getting-started)
   * [Examples](#examples)
   * [Latest supported Dependencies](#latest-supported-dependencies)
@@ -24,18 +24,19 @@ This project has as first goal to bind the Google's Material Components Web proj
 
 ## Version management 
 
-This project use semantic versionning to define the releases. This mean that each stable release of the project will get associate a version number of the form `vX.Y.Z`. 
+This project use semantic versioning to define the releases. This means that each stable release of the project will be assigned a version number of the form `vX.Y.Z`. 
 
-- **X** define the major version number
-- **Y** define the minor version number 
-- **Z** define the patch version number
+- **X** defines the major version number
+- **Y** defines the minor version number 
+- **Z** defines the patch version number
 
-When a release contains only bug fixes, the patch number increase. When the release contains new features backward compatibles, the minor version increase. When the release contains breaking changes, the major version increase. 
+When a release contains only bug fixes, the patch number increases. When the release contains new features that are backward compatible, the minor version increases. When the release contains breaking changes, the major version increases. 
 
 Thus, it should be safe to depend on a fixed major version and moving minor version of this project.
 
-## Install
-To install MaterialComponents on your Pharo image you can just execute the following script:
+## Installation
+
+To install MaterialComponents on your Pharo image, execute the following script:
 
 ```Smalltalk
     Metacello new
@@ -53,7 +54,7 @@ To add MaterialComponents Seaside to your baseline just add this:
     	with: [ spec repository: 'github://DuneSt/MaterialComponents:master/src' ]
 ```
 
-Note that you can replace the #master by another branch as #development or a tag as #v1.0.0, #v1.? or #v1.2.? .
+Note you can replace the #master by another branch such as #development or a tag such as #v1.0.0, #v1.? or #v1.2.? .
 
 ## Getting started
 
@@ -61,7 +62,7 @@ Note that you can replace the #master by another branch as #development or a tag
 
 ## Examples
 
-You can find multiple examples when the application will be installed at the url: [http://localhost:8080/MDCDemo](http://localhost:8080/MDCDemo)
+You can find multiple examples when the application will be installed at the url: [http://localhost:8080/mdc](http://localhost:8080/mdc)
 
 When you install in a plain Pharo image you need to start the seaside server first by opening `World menu > Tools > Seaside Control Panel` and adding and starting an appropropriate `ZnZincServerAdaptor`. If you do not use port 8080, change the port in the URL.
 
@@ -88,4 +89,4 @@ Understanding what is going on under the hood is always useful. Have a look at [
 
 ## Contact
 
-If you have any question or problem do not hesitate to open an issue or contact cyril (a) ferlicot.me 
+If you have any questions or problems do not hesitate to open an issue or contact cyril (a) ferlicot.me 
