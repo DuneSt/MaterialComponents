@@ -8,7 +8,8 @@ Class {
 
 { #category : #initialization }
 MDCButtonLabel >> initialize [
-	self flag: #todo.
+	<mdcConstructor: #mdcButtonLabel description: 'Creates a label to be displayed in a MDC button.'>
+	<mdcConstructor: #mdcButtonLabel: description: 'Creates a label to be displayed in a MDC button with implicit content.'>
 	super initialize.
 	self mdcClass: 'button__label'
 ]

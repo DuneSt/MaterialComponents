@@ -25,6 +25,11 @@ MDCButtonDemoScreen class >> title [
 	^ 'Buttons'
 ]
 
+{ #category : #accessing }
+MDCButtonDemoScreen >> actualClasses [
+	^ { MDCButton. MDCButtonLabel }
+]
+
 { #category : #sections }
 MDCButtonDemoScreen >> outlinedButtons [
 	^ OrderedDictionary new

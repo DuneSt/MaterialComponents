@@ -33,7 +33,7 @@ MDCDemo class >> canBeRoot [
 
 { #category : #initialization }
 MDCDemo class >> demoName [
-	^ 'MDCDemo'
+	^ 'mdc'
 ]
 
 { #category : #initialization }
@@ -42,6 +42,7 @@ MDCDemo class >> initialize [
 	self environment at: #WADevelopmentConfiguration ifPresent: [ :class | WAAdmin applicationDefaults removeParent: class instance ].
 	^ (WAAdmin register: self asApplicationAt: self demoName)
 		preferenceAt: #sessionClass put: MDCDemoSession;
+		preferenceAt: #trackingStrategy put: WACookieForBrowserIPForCrawlerTrackingStrategy new;
 		addLibrary: JQDeploymentLibrary;
 		addLibrary: MDCLibrary;
 		addLibrary: MDCDemoLibrary;

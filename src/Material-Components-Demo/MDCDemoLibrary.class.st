@@ -359,7 +359,7 @@ MDCDemoLibrary >> mcDemoCss [
 .mdc-snippet-group {
     margin-left: -16px;
     margin-right: -16px;
-    margin-bottom: 84px;
+    margin-bottom: 40px;
 }
 
 .mdc-snippet-group .mdc-snippet-demos, .mdc-snippet-group .mdc-snippet-captions {
@@ -404,6 +404,74 @@ MDCDemoLibrary >> mcDemoCss [
     overflow: hidden;
 }
 
+.mdc-documentation {
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    color: rgba(0,0,0,.87);
+}
+
+.mdc-documentation code, .mdc-documentation table, .mdc-documentation tbody, .mdc-documentation td, .mdc-documentation tfoot, .mdc-documentation th, .mdc-documentation thead, .mdc-documentation tr, .mdc-documentation tt {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+.mdc-documentation table {
+    display: inline-block;
+    overflow-x: auto;
+    margin: 8px 0 32px;
+    max-width: 100%;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.mdc-documentation th, .mdc-documentation td {
+    border: 1px solid #eee;
+    padding: 12px 12px 12px 24px;
+}
+
+.mdc-documentation th {
+    font-family: Roboto,sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.75rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    background: rgba(60,133,248,.08);
+    border-top: none;
+    font-size: 1.143rem;
+    color: #202124;
+    text-align: left;
+}
+
+.mdc-documentation tr:nth-child(2n) {
+    background-color: #ECEFF1;
+}
+
+.mdc-documentation th:first-child, .mdc-documentation td:first-child {
+    border-left: none;
+}
+
+.mdc-documentation td:first-child code {
+    background: 0;
+}
+
+.mdc-documentation code {
+    font-family: Roboto Mono,consolas,monospace;
+    color: #202124;
+    border-radius: 2px;
+    word-break: break-word;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+    font-weight: 400;
+}
 
 
 /* Specific demos */
@@ -723,8 +791,8 @@ code.nosupport::before {
 }
 
 pre {
-    margin: 0px -16px;
-    background-color: #eee;
+    margin: 0 -16px;
+    background-color: rgba(60,133,248,.08);
     color: rgb(0,0,0);
     padding: 5px 20px;
     position: relative;
@@ -732,7 +800,7 @@ pre {
 }
 
 pre:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: #BBDEFB;
 }'
 ]
 

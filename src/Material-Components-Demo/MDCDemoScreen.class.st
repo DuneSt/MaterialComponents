@@ -43,7 +43,14 @@ MDCDemoScreen class >> title [
 	^ self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
+MDCDemoScreen >> actualClasses [
+	"I should return the actual class of the element targetted by the screen."
+
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 MDCDemoScreen >> codeOf: aSymbol [
 	"I take a method selector I contains and return his source code without the declaration."
 
@@ -102,6 +109,28 @@ MDCDemoScreen >> render: componentsMap on: html [
 ]
 
 { #category : #rendering }
+MDCDemoScreen >> renderConstructorsOf: class on: html [
+	(Pragma allNamed: #mdcConstructor:description: in: class)
+		ifNotEmpty: [ :pragmas | 
+			html paragraph: 'Constructors: '.
+			html
+				table: [ html
+						tableHead: [ html
+								tableRow: [ html
+										tableHeading: 'Selector';
+										tableHeading: 'Receiver';
+										tableHeading: 'Description' ] ].
+					html
+						tableBody: [ pragmas
+								do: [ :pragma | 
+									html
+										tableRow: [ html
+												tableData: [ html code: '#' , (pragma argumentAt: 1) ];
+												tableData: [ html code: 'WAHtmlCanvas' ];
+												tableData: (pragma argumentAt: 2) ] ] ] ] ]
+]
+
+{ #category : #rendering }
 MDCDemoScreen >> renderContentOn: html [
 	html div
 		mdcClass: 'components__page';
@@ -112,7 +141,44 @@ MDCDemoScreen >> renderContentOn: html [
 						with: self title.
 					html paragraph: self description.
 					self renderWarningMessageOn: html ].
-			self renderScreenContentOn: html ]
+			self renderScreenContentOn: html.
+			self renderDocumentationOn: html ]
+]
+
+{ #category : #rendering }
+MDCDemoScreen >> renderDocumentationOn: html [
+	html div
+		mdcClass: 'documentation';
+		with: [ html heading
+				level2;
+				with: 'API'.
+			self actualClasses
+				do: [ :class | 
+					html heading
+						level3;
+						with: class printString.
+					self renderConstructorsOf: class on: html.
+					self renderOptionsOf: class on: html ] ]
+]
+
+{ #category : #rendering }
+MDCDemoScreen >> renderOptionsOf: class on: html [
+	^ (Pragma allNamed: #mdcApi:priority: in: class)
+		ifNotEmpty: [ :pragmas | 
+			html paragraph: 'Options: '.
+			html
+				table: [ html
+						tableHead: [ html
+								tableRow: [ html
+										tableHeading: 'Selector';
+										tableHeading: 'Description' ] ].
+					html
+						tableBody: [ (pragmas sorted: [ :pragma | pragma argumentAt: 2 ] ascending)
+								do: [ :pragma | 
+									html
+										tableRow: [ html
+												tableData: [ html code: '#' , pragma methodSelector ];
+												tableData: (pragma argumentAt: 1) ] ] ] ] ]
 ]
 
 { #category : #rendering }
