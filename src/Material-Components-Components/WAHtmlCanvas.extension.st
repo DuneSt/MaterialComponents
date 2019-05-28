@@ -3,7 +3,7 @@ Extension { #name : #WAHtmlCanvas }
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> autoInit [
 	self flag: #todo.
-	self document addLoadScriptFirst: 'window.mdc.autoInit()' js
+	self document addLoadScriptFirst: 'MDC.initialize()' js
 ]
 
 { #category : #'*Material-Components-Components' }

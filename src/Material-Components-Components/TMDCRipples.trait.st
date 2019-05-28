@@ -6,7 +6,7 @@ Trait {
 }
 
 { #category : #options }
-TMDCRipples >> withRipples [
-	self ensureId.
-	self canvas document addLoadScript: ('new mdc.ripple.MDCRipple(document.querySelector("#{1}"))' format: {self id}) js
+TMDCRipples >> withRipple [
+	<mdcApi: 'Adds a ripple to the element with the element is clicked.' priority: 100>
+	self mdcClass: 'with-ripple'
 ]

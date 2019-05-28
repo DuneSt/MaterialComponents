@@ -52,7 +52,7 @@ MDCButtonDemoScreen >> raisedButtons [
 MDCButtonDemoScreen >> renderDefaultOutlinedButtonOn: html [
 	html mdcButton
 		outlined;
-		withRipples;
+		withRipple;
 		label: 'Default'
 ]
 
@@ -60,7 +60,7 @@ MDCButtonDemoScreen >> renderDefaultOutlinedButtonOn: html [
 MDCButtonDemoScreen >> renderDefaultRaisedButtonOn: html [
 	html mdcButton
 		raised;
-		withRipples;
+		withRipple;
 		label: 'Default'
 ]
 
@@ -69,7 +69,7 @@ MDCButtonDemoScreen >> renderDefaultShapedButtonOn: html [
 	html mdcButton
 		raised;
 		mdcClass: 'demo-button-shaped'; "Check MDC documentation on their mixin to know how to generate this class"
-		withRipples;
+		withRipple;
 		label: 'Default'
 ]
 
@@ -82,7 +82,7 @@ MDCButtonDemoScreen >> renderDefaultTextButtonOn: html [
 MDCButtonDemoScreen >> renderDefaultUnelevatedButtonOn: html [
 	html mdcButton
 		unelevated;
-		withRipples;
+		withRipple;
 		label: 'Default'
 ]
 
@@ -91,7 +91,7 @@ MDCButtonDemoScreen >> renderDenseOutlinedButtonOn: html [
 	html mdcButton
 		outlined;
 		dense;
-		withRipples;
+		withRipple;
 		label: 'Dense'
 ]
 
@@ -100,7 +100,7 @@ MDCButtonDemoScreen >> renderDenseRaisedButtonOn: html [
 	html mdcButton
 		raised;
 		dense;
-		withRipples;
+		withRipple;
 		label: 'Dense'
 ]
 
@@ -110,7 +110,7 @@ MDCButtonDemoScreen >> renderDenseShapedButtonOn: html [
 		raised;
 		mdcClass: 'demo-button-shaped'; "Check MDC documentation on their mixin to know how to generate this class"
 		dense;
-		withRipples;
+		withRipple;
 		label: 'Dense'
 ]
 
@@ -126,7 +126,7 @@ MDCButtonDemoScreen >> renderDenseUnelevatedButtonOn: html [
 	html mdcButton
 		unelevated;
 		dense;
-		withRipples;
+		withRipple;
 		label: 'Dense'
 ]
 
@@ -134,7 +134,7 @@ MDCButtonDemoScreen >> renderDenseUnelevatedButtonOn: html [
 MDCButtonDemoScreen >> renderIconOutlinedButtonOn: html [
 	html mdcButton
 		outlined;
-		withRipples;
+		withRipple;
 		icon: 'favorite' label: 'Icon'
 ]
 
@@ -142,7 +142,7 @@ MDCButtonDemoScreen >> renderIconOutlinedButtonOn: html [
 MDCButtonDemoScreen >> renderIconRaisedButtonOn: html [
 	html mdcButton
 		raised;
-		withRipples;
+		withRipple;
 		icon: 'favorite' label: 'Icon'
 ]
 
@@ -151,7 +151,7 @@ MDCButtonDemoScreen >> renderIconShapedButtonOn: html [
 	html mdcButton
 		raised;
 		mdcClass: 'demo-button-shaped'; "Check MDC documentation on their mixin to know how to generate this class"
-		withRipples;
+		withRipple;
 		icon: 'favorite' label: 'Icon'
 ]
 
@@ -173,7 +173,7 @@ MDCButtonDemoScreen >> renderIconTextButtonWithSugarOn: html [
 MDCButtonDemoScreen >> renderIconUnelevatedButtonOn: html [
 	html mdcButton
 		unelevated;
-		withRipples;
+		withRipple;
 		icon: 'favorite' label: 'Icon'
 ]
 
@@ -190,7 +190,7 @@ MDCButtonDemoScreen >> renderScreenContentOn: html [
 { #category : #code }
 MDCButtonDemoScreen >> renderTextButtonWithRipplesOn: html [
 	html mdcButton
-		withRipples;
+		withRipple;
 		label: 'Ripples'
 ]
 

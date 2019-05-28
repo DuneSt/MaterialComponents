@@ -10,7 +10,7 @@ Class {
 MDCIcon >> buttonIcon [
 	self
 		mdcClass: 'button__icon';
-		attributeAt: 'aria-hidden' put: true
+		attributeAt: 'aria-hidden' put: 'true'
 ]
 
 { #category : #initialization }

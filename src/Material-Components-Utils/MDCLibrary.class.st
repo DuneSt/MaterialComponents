@@ -160,6 +160,12 @@ MDCLibrary >> mdcSeasideJs [
 
 MDC.drawer = {};
 MDC.topAppBar = {};
+MDC.ripples = {};
+
+MDC.initialize = function (){
+  mdc.autoInit();
+  this.ripples.initializeAllRipples();
+};
 
 MDC.topAppBar.instance = function () {
     return this.inst = this.inst || document.querySelector(".mdc-top-app-bar").MDCTopAppBar;
@@ -196,7 +202,15 @@ MDC.drawer.initModalClosingOnClick = function () {
         }
     });
 };
-'
+
+/*
+Attach ripples to all surfaces with the `.mdc-with-ripple` class.
+ */
+MDC.ripples.initializeAllRipples = function() {
+    for (const element of (document.querySelectorAll(".mdc-with-ripple"))) {
+        mdc.ripple.MDCRipple.attachTo(element);
+    }
+};'
 ]
 
 { #category : #fonts }

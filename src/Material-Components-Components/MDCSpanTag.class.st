@@ -8,5 +8,5 @@ Class {
 
 { #category : #accessing }
 MDCSpanTag >> tag [
-	^ 'div'
+	^ 'span'
 ]
