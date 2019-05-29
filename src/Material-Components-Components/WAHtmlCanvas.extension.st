@@ -7,6 +7,18 @@ WAHtmlCanvas >> autoInit [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcAnchorButton [
+	^ self brush: MDCAnchorButton new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcAnchorButton: aBlock [
+	^ self mdcAnchorButton
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcAnchorListItem [
 	^ self brush: MDCAnchorListItem new
 ]
