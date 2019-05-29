@@ -31,6 +31,16 @@ MDCButtonDemoScreen >> actualClasses [
 ]
 
 { #category : #sections }
+MDCButtonDemoScreen >> disabledButtons [
+	^ OrderedDictionary new
+		add: 'Text disabled' -> #renderDisabledButtonOn:;
+		add: 'Raised disabled' -> #renderRaisedDisabledButtonOn:;
+		add: 'Unelevated disabled' -> #renderUnelevatedDisabledButtonOn:;
+		add: 'Outlined disabled' -> #renderOutlinedDisabledButtonOn:;
+		yourself
+]
+
+{ #category : #sections }
 MDCButtonDemoScreen >> outlinedButtons [
 	^ OrderedDictionary new
 		add: 'Default' -> #renderDefaultOutlinedButtonOn:;
@@ -131,6 +141,13 @@ MDCButtonDemoScreen >> renderDenseUnelevatedButtonOn: html [
 ]
 
 { #category : #code }
+MDCButtonDemoScreen >> renderDisabledButtonOn: html [
+	html mdcButton
+		disabled;
+		label: 'Text'
+]
+
+{ #category : #code }
 MDCButtonDemoScreen >> renderIconOutlinedButtonOn: html [
 	html mdcButton
 		outlined;
@@ -177,10 +194,27 @@ MDCButtonDemoScreen >> renderIconUnelevatedButtonOn: html [
 		icon: 'favorite' label: 'Icon'
 ]
 
+{ #category : #code }
+MDCButtonDemoScreen >> renderOutlinedDisabledButtonOn: html [
+	html mdcButton
+		disabled;
+		outlined;
+		label: 'Outlined'
+]
+
+{ #category : #code }
+MDCButtonDemoScreen >> renderRaisedDisabledButtonOn: html [
+	html mdcButton
+		disabled;
+		raised;
+		label: 'Raised'
+]
+
 { #category : #rendering }
 MDCButtonDemoScreen >> renderScreenContentOn: html [
 	self
 		render: self textButtons on: html;
+		render: self disabledButtons on: html;
 		render: self raisedButtons on: html;
 		render: self unelevatedButtons on: html;
 		render: self outlinedButtons on: html;
@@ -197,6 +231,14 @@ MDCButtonDemoScreen >> renderTextButtonWithRipplesOn: html [
 { #category : #code }
 MDCButtonDemoScreen >> renderTextButtonWithSugarOn: html [
 	html mdcButton label: 'Default'
+]
+
+{ #category : #code }
+MDCButtonDemoScreen >> renderUnelevatedDisabledButtonOn: html [
+	html mdcButton
+		disabled;
+		unelevated;
+		label: 'Unelevated'
 ]
 
 { #category : #sections }

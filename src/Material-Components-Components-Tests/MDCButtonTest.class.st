@@ -87,7 +87,8 @@ MDCButtonTest >> testWithLabel [
 MDCButtonTest >> testWithRipple [
 	self
 		assert: [ :html | 
-			html
-				mdcButton withRipple; label: 'Validate'  ]
+			html mdcButton
+				withRipple;
+				label: 'Validate' ]
 		generates: '<button class="mdc-button mdc-with-ripple" type="submit"><span class="mdc-button__label">Validate</span></button>'
 ]

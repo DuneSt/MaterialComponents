@@ -240,6 +240,12 @@ MDCDemoLibrary >> mcDemoCss [
     z-index: 2;
 }
 
+.mdc-components__nav .mdc-list-item__graphic {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
 .mdc-doc{
     width: 100%;
     font-size: 14px;
