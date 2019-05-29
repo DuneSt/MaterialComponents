@@ -171,7 +171,8 @@ MDCDemo >> initialize [
 	self footer: self defaultFooter.
 	self session rootComponent: self.
 	self componentInstances: Dictionary new.
-	self displayInstanceOf: MDCDemoPage pagesToDisplay first
+	self flag: #todo.
+	self displayInstanceOf: "MDCDemoPage pagesToDisplay first" MDCComponentsDemoPage
 ]
 
 { #category : #rendering }
