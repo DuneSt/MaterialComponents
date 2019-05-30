@@ -72,6 +72,7 @@ MDCDemoScreen >> render: componentsMap fullWidth: aBoolean on: html [
 	html div
 		mdcClass: 'snippet-group';
 		class: 'mdc-is-full-width' if: aBoolean;
+		mdcClass: 'demo-' , self pathName asLowercase;
 		with: [ html div: [ html div
 						mdcClass: 'snippet-demos';
 						with: [ html mdcDemoPadding.
@@ -112,13 +113,12 @@ MDCDemoScreen >> render: componentsMap on: html [
 MDCDemoScreen >> renderConstructorsOf: class on: html [
 	(Pragma allNamed: #mdcConstructor:description: in: class)
 		ifNotEmpty: [ :pragmas | 
-			html paragraph: 'Constructors: '.
+			html paragraph: 'Constructors to send to Seaside''s canvas: '.
 			html
 				table: [ html
 						tableHead: [ html
 								tableRow: [ html
 										tableHeading: 'Selector';
-										tableHeading: 'Receiver';
 										tableHeading: 'Description' ] ].
 					html
 						tableBody: [ pragmas
@@ -126,7 +126,6 @@ MDCDemoScreen >> renderConstructorsOf: class on: html [
 									html
 										tableRow: [ html
 												tableData: [ html code: '#' , (pragma argumentAt: 1) ];
-												tableData: [ html code: 'WAHtmlCanvas' ];
 												tableData: (pragma argumentAt: 2) ] ] ] ] ]
 ]
 
@@ -136,11 +135,7 @@ MDCDemoScreen >> renderContentOn: html [
 		mdcClass: 'components__page';
 		with: [ html div
 				mdcClass: 'component-title';
-				with: [ html heading
-						level3;
-						with: self title.
-					html paragraph: self description.
-					self renderWarningMessageOn: html ].
+				with: [ self renderTitleComponentContent: html ].
 			self renderScreenContentOn: html.
 			self renderDocumentationOn: html ]
 ]
@@ -187,6 +182,15 @@ MDCDemoScreen >> renderScreenContentOn: html [
 ]
 
 { #category : #rendering }
+MDCDemoScreen >> renderTitleComponentContent: html [
+	html heading
+		level3;
+		with: self title.
+	html paragraph: self description.
+	^ self renderWarningMessageOn: html
+]
+
+{ #category : #rendering }
 MDCDemoScreen >> renderTocOn: html [
 	self flag: #todo.
 	1halt.
@@ -204,12 +208,12 @@ MDCDemoScreen >> renderTocOn: html [
 
 { #category : #rendering }
 MDCDemoScreen >> renderWarningMessageOn: html [
-	self flag: #todo.
+	self flag: #todo. "Typography"
 	self warningMessage ifNil: [ ^ self ].
-	1halt.
+
 	html div
-		class: 'mdl-demo-warning';
-		mdlTypographyBody2;
+		mdcClass: 'demo-warning';
+		mdcClass: 'typography--body2';
 		with: 'Warning: ', self warningMessage
 ]
 

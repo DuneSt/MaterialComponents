@@ -55,6 +55,60 @@ WAHtmlCanvas >> mdcButtonLabel: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCell [
+	^ self brush: MDCCell new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCell: aBlock [
+	^ self mdcCell
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCell: aBlock desktopSize: size [
+	^ self mdcCell
+		desktopSize: size;
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCell: aBlock phoneSize: size [
+	^ self mdcCell
+		phoneSize: size;
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCell: aBlock size: size [
+	^ self mdcCell
+		size: size;
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCell: aBlock tabletSize: size [
+	^ self mdcCell
+		tabletSize: size;
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcCellDesktop:  dsize tablet: tsize phone: psize with: aBlock [
+	^ self mdcCell
+		desktopSize: dsize;
+		tabletSize: tsize;
+		phoneSize: psize;
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcDrawer [
 	^ self brush: MDCDrawer new
 ]
@@ -74,6 +128,30 @@ WAHtmlCanvas >> mdcDrawerContent [
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcDrawerContent: aBlock [
 	^ self mdcDrawerContent
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcGrid [
+	^ self brush: MDCGrid new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcGrid: aBlock [
+	^ self mdcGrid
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcGridInner [
+	^ self brush: MDCGridInner new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcGridInner: aBlock [
+	^ self mdcGridInner
 		with: aBlock
 		yourself
 ]

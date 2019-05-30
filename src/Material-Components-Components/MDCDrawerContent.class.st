@@ -1,8 +1,6 @@
 Class {
 	#name : #MDCDrawerContent,
 	#superclass : #MDCDivTag,
-	#traits : 'TMDCBrush',
-	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Layout'
 }
 

@@ -14,8 +14,6 @@ Examples
 Class {
 	#name : #MDCButtonLabel,
 	#superclass : #MDCSpanTag,
-	#traits : 'TMDCBrush',
-	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Buttons'
 }
 
