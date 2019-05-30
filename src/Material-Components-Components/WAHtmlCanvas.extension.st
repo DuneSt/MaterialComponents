@@ -145,18 +145,6 @@ WAHtmlCanvas >> mdcGrid: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mdcGridInner [
-	^ self brush: MDCGridInner new
-]
-
-{ #category : #'*Material-Components-Components' }
-WAHtmlCanvas >> mdcGridInner: aBlock [
-	^ self mdcGridInner
-		with: aBlock
-		yourself
-]
-
-{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcIcon [
 	^ self brush: MDCIcon new
 ]
@@ -164,6 +152,18 @@ WAHtmlCanvas >> mdcIcon [
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcIcon: aBlock [
 	^ self mdcIcon
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcInnerGrid [
+	^ self brush: MDCInnerGrid new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcInnerGrid: aBlock [
+	^ self mdcInnerGrid
 		with: aBlock
 		yourself
 ]

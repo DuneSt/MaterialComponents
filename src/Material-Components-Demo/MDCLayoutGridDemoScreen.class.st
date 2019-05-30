@@ -27,7 +27,7 @@ MDCLayoutGridDemoScreen class >> title [
 
 { #category : #accessing }
 MDCLayoutGridDemoScreen >> actualClasses [
-	^ { MDCGrid. MDCGridInner. MDCCell }
+	^ { MDCGrid. MDCInnerGrid. MDCCell }
 ]
 
 { #category : #sections }
@@ -37,12 +37,19 @@ MDCLayoutGridDemoScreen >> gridLayout [
 		yourself
 ]
 
-{ #category : #rendering }
+{ #category : #sections }
+MDCLayoutGridDemoScreen >> nestedGridLayout [ 
+	^ OrderedDictionary new
+		add: 'Nested grid' -> #renderNestedGridDemoOn:;
+		yourself
+]
+
+{ #category : #code }
 MDCLayoutGridDemoScreen >> renderGridDemoOn: html [
 	html mdcGrid
 		mdcElevation: 4;
 		with: [ html
-				mdcGridInner: [ 1 to: 12 do: [ :i | html mdcCell: 1 size: 1 ].
+				mdcInnerGrid: [ 1 to: 12 do: [ :i | html mdcCell: 1 size: 1 ].
 					1 to: 3 do: [ :i | html mdcCell: 4 size: 4 ].
 					#(6 4 2) do: [ :int | html mdcCell: int size: int ].
 					html mdcCell
@@ -59,10 +66,23 @@ MDCLayoutGridDemoScreen >> renderGridDemoOn: html [
 						with: '2 (4 phone)' ] ]
 ]
 
+{ #category : #code }
+MDCLayoutGridDemoScreen >> renderNestedGridDemoOn: html [
+	html mdcGrid
+		mdcElevation: 4;
+		with: [ html mdcInnerGrid: [ 
+					1 to: 4 do: [ :i | html mdcCell: 'Level 1-' , i asString size: 4 ].
+					html mdcCell: [ 
+						html mdcInnerGrid: [ 
+							1 to: 4 do: [ :i | 
+								html mdcCell: 'Level 2-' , i asString size: 6 ] ] ] size: 12 ] ]
+]
+
 { #category : #rendering }
 MDCLayoutGridDemoScreen >> renderScreenContentOn: html [
 	self
-		render: self gridLayout fullWidth: true on: html
+		render: self gridLayout fullWidth: true on: html;
+		render: self nestedGridLayout fullWidth: true on: html
 ]
 
 { #category : #rendering }
