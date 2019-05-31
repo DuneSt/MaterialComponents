@@ -49,7 +49,7 @@ MDCGrid >> fixedColumnWidth: anInteger [
 { #category : #options }
 MDCGrid >> fixedColumnWidthDesktop: anInteger1 tablet: anInteger2 phone: anInteger3 [
 	<mdcApi:
-		'Optional, specifies the grid should have fixed column width that can varie dépending on the device of the values passed as parameters in pixels. Cells on multiple columns will also includes the margins in their size.'
+		'Optional, specifies the grid should have fixed column width that can varie depending on the device of the values passed as parameters in pixels. Cells on multiple columns will also includes the margins in their size.'
 	priority: 20>
 	self
 		mdcClass: 'layout-grid--fixed-column-width';
