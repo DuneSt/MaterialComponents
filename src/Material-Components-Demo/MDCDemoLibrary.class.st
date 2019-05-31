@@ -467,6 +467,7 @@ MDCDemoLibrary >> mcDemoCss [
 .mdc-documentation th, .mdc-documentation td {
     border: 1px solid #eee;
     padding: 12px 12px 12px 24px;
+    text-align: justify;
 }
 
 .mdc-documentation th {

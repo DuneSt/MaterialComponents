@@ -33,3 +33,8 @@ WATagBrush >> mdcTopAppBarFixedAdjust [
 	self flag: #todo.
 	self class: 'mdc-top-app-bar--fixed-adjust'
 ]
+
+{ #category : #'*Material-Components-Components' }
+WATagBrush >> styleAt: aString put: aValue [
+	self style: aString , ':' , aValue asString
+]

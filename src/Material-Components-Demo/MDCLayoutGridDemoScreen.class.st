@@ -45,6 +45,13 @@ MDCLayoutGridDemoScreen >> cellsOrder [
 ]
 
 { #category : #sections }
+MDCLayoutGridDemoScreen >> fixedColumnWidth [ 
+	^ OrderedDictionary new
+		add: 'Grid with fixed columns width' -> #renderFixedColumnWidthDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
 MDCLayoutGridDemoScreen >> gridLayout [ 
 	^ OrderedDictionary new
 		add: 'Responsive grid' -> #renderGridDemoOn:;
@@ -105,6 +112,23 @@ MDCLayoutGridDemoScreen >> renderCellPositionsDemoOn: html [
 ]
 
 { #category : #code }
+MDCLayoutGridDemoScreen >> renderFixedColumnWidthDemoOn: html [
+	html mdcGrid
+		mdcElevation: 4;
+		fixedColumnWidth: 30;
+		with: [ html
+				mdcInnerGrid: [ 1 to: 12 do: [ :i | html mdcCell: 1 size: 1 ].
+					1 to: 3 do: [ :i | html mdcCell: 4 size: 4 ] ] ].
+	html break.
+	html mdcGrid
+		mdcElevation: 4;
+		fixedColumnWidthDesktop: 40 tablet: 30 phone: 20;
+		with: [ html
+				mdcInnerGrid: [ 1 to: 12 do: [ :i | html mdcCell: 1 size: 1 ].
+					1 to: 3 do: [ :i | html mdcCell: 4 size: 4 ] ] ]
+]
+
+{ #category : #code }
 MDCLayoutGridDemoScreen >> renderGridDemoOn: html [
 	html mdcGrid
 		mdcElevation: 4;
@@ -144,7 +168,8 @@ MDCLayoutGridDemoScreen >> renderScreenContentOn: html [
 		render: self gridLayout fullWidth: true on: html;
 		render: self nestedGridLayout fullWidth: true on: html;
 		render: self cellPositions fullWidth: true on: html;
-		render: self cellsOrder fullWidth: true on: html
+		render: self cellsOrder fullWidth: true on: html;
+		render: self fixedColumnWidth fullWidth: true on: html
 ]
 
 { #category : #rendering }

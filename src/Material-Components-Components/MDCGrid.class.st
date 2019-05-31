@@ -38,6 +38,26 @@ Class {
 	#category : #'Material-Components-Components-LayoutGrid'
 }
 
+{ #category : #options }
+MDCGrid >> fixedColumnWidth: anInteger [
+	<mdcApi:
+		'Optional, specifies the grid should have fixed column width of the value passed as parameter in pixels. Cells on multiple columns will also includes the margins in their size. This option applies the same width on desktop, tablet and mobile.'
+	priority: 10>
+	self fixedColumnWidthDesktop: anInteger tablet: anInteger phone: anInteger
+]
+
+{ #category : #options }
+MDCGrid >> fixedColumnWidthDesktop: anInteger1 tablet: anInteger2 phone: anInteger3 [
+	<mdcApi:
+		'Optional, specifies the grid should have fixed column width that can varie dépending on the device of the values passed as parameters in pixels. Cells on multiple columns will also includes the margins in their size.'
+	priority: 20>
+	self
+		mdcClass: 'layout-grid--fixed-column-width';
+		styleAt: '--mdc-layout-grid-column-width-desktop' put: anInteger1 asString , 'px';
+		styleAt: '--mdc-layout-grid-column-width-tablet' put: anInteger2 asString , 'px';
+		styleAt: '--mdc-layout-grid-column-width-phone' put: anInteger3 asString , 'px'
+]
+
 { #category : #initialization }
 MDCGrid >> initialize [
 	<mdcConstructor: #mdcGrid description: 'Creates a grid wrapper to contain a grid.'>
