@@ -31,6 +31,20 @@ MDCLayoutGridDemoScreen >> actualClasses [
 ]
 
 { #category : #sections }
+MDCLayoutGridDemoScreen >> cellPositions [ 
+	^ OrderedDictionary new
+		add: 'Cell positions' -> #renderCellPositionsDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
+MDCLayoutGridDemoScreen >> cellsOrder [
+	^ OrderedDictionary new
+		add: 'Cell order' -> #renderCellOrderDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
 MDCLayoutGridDemoScreen >> gridLayout [ 
 	^ OrderedDictionary new
 		add: 'Responsive grid' -> #renderGridDemoOn:;
@@ -42,6 +56,52 @@ MDCLayoutGridDemoScreen >> nestedGridLayout [
 	^ OrderedDictionary new
 		add: 'Nested grid' -> #renderNestedGridDemoOn:;
 		yourself
+]
+
+{ #category : #code }
+MDCLayoutGridDemoScreen >> renderCellOrderDemoOn: html [
+	html mdcGrid
+		mdcElevation: 2;
+		with: [ html
+				mdcInnerGrid: [ html mdcCell
+						size: 3;
+						order: 4;
+						with: 1.
+					html mdcCell
+						size: 3;
+						order: 1;
+						with: 2.
+					html mdcCell
+						size: 3;
+						order: 3;
+						with: 3.
+					html mdcCell
+						size: 3;
+						order: 2;
+						with: 4 ] ]
+]
+
+{ #category : #code }
+MDCLayoutGridDemoScreen >> renderCellPositionsDemoOn: html [
+	html mdcGrid
+		mdcElevation: 4;
+		with: [ html mdcInnerGrid
+				style: 'height: 150px;';
+				with: [ html mdcCell
+						top;
+						size: 3;
+						with: 'Top'.
+					html mdcCell
+						middle;
+						size: 3;
+						with: 'Middle'.
+					html mdcCell
+						bottom;
+						size: 3;
+						with: 'Bottom'.
+					html mdcCell
+						size: 3;
+						with: 'Stretch' ] ]
 ]
 
 { #category : #code }
@@ -82,7 +142,9 @@ MDCLayoutGridDemoScreen >> renderNestedGridDemoOn: html [
 MDCLayoutGridDemoScreen >> renderScreenContentOn: html [
 	self
 		render: self gridLayout fullWidth: true on: html;
-		render: self nestedGridLayout fullWidth: true on: html
+		render: self nestedGridLayout fullWidth: true on: html;
+		render: self cellPositions fullWidth: true on: html;
+		render: self cellsOrder fullWidth: true on: html
 ]
 
 { #category : #rendering }

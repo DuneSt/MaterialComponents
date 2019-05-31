@@ -13,7 +13,7 @@ TMDCButton >> dense [
 
 { #category : #'syntaxic sugar' }
 TMDCButton >> icon: aString label: aString2 [
-	<mdcApi: 'Sytaxic sugar. Indicates the button’s text label and icon and directly wrap them inside a MDCButtonLabel and MDCIcon.' priority: 60>
+	<mdcApi: 'Syntactic sugar. Indicates the button’s text label and icon and directly wrap them inside a MDCButtonLabel and MDCIcon.' priority: 60>
 	self
 		with: [ self canvas mdcIcon
 				buttonIcon;
@@ -31,7 +31,7 @@ TMDCButton >> initialize [
 
 { #category : #'syntaxic sugar' }
 TMDCButton >> label: aStringOrBlock [
-	<mdcApi: 'Sytaxic sugar. Indicates the button’s text label and directly wrap it inside a MDCButtonLabel.' priority: 50>
+	<mdcApi: 'Syntactic sugar. Indicates the button’s text label and directly wrap it inside a MDCButtonLabel.' priority: 50>
 	self with: [ self canvas mdcButtonLabel: aStringOrBlock ]
 ]
 

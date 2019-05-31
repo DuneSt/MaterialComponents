@@ -39,6 +39,13 @@ Class {
 }
 
 { #category : #options }
+MDCCell >> bottom [
+	<mdcApi: 'Optional, specifies the alignment of cell to be at the bottom of its parent.' priority: 70>
+		
+	self mdcClass: 'layout-grid__cell--align-bottom'
+]
+
+{ #category : #options }
 MDCCell >> desktopSize: anInteger [
 	<mdcApi: 'Optional, specifies the number of columns the cell spans on desktop.' priority: 20>
 	self mdcClass: 'layout-grid__cell--span-' , anInteger asString , '-desktop'
@@ -58,6 +65,19 @@ MDCCell >> initialize [
 ]
 
 { #category : #options }
+MDCCell >> middle [
+	<mdcApi: 'Optional, specifies the alignment of cell to be at the middle of its parent.' priority: 60>
+		
+	self mdcClass: 'layout-grid__cell--align-middle'
+]
+
+{ #category : #options }
+MDCCell >> order: anInteger [
+	<mdcApi: 'Optional, specifies the order of the cell. Parameter need to be an integer between 1 and 12. Please bear in mind that this may have an impact on accessibility, since screen readers and other tools tend to follow source order.' priority: 80>
+	self mdcClass: 'layout-grid__cell--order-', anInteger asString
+]
+
+{ #category : #options }
 MDCCell >> phoneSize: anInteger [ 
 	<mdcApi: 'Optional, specifies the number of columns the cell spans on mobile.' priority: 40>
 	self mdcClass: 'layout-grid__cell--span-', anInteger asString , '-phone'
@@ -73,4 +93,11 @@ MDCCell >> size: anInteger [
 MDCCell >> tabletSize: anInteger [ 
 	<mdcApi: 'Optional, specifies the number of columns the cell spans on tablet.' priority: 30>
 	self mdcClass: 'layout-grid__cell--span-', anInteger asString , '-tablet'
+]
+
+{ #category : #options }
+MDCCell >> top [
+	<mdcApi: 'Optional, specifies the alignment of cell to be at the top of its parent.' priority: 50>
+		
+	self mdcClass: 'layout-grid__cell--align-top'
 ]
