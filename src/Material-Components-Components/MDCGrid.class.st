@@ -51,6 +51,21 @@ MDCGrid >> alignRight [
 ]
 
 { #category : #options }
+MDCGrid >> cellSpacing: anInteger [
+	<mdcApi: 'Optional, specifies the space between edges of adjacent cells in pixels. This option applies the same space on desktop, tablet and mobile.' priority: 70>
+	self cellSpacingDesktop: anInteger tablet: anInteger phone: anInteger
+]
+
+{ #category : #options }
+MDCGrid >> cellSpacingDesktop: anInteger1 tablet: anInteger2 phone: anInteger3 [
+	<mdcApi: 'Optional, specifies the space between edges of adjacent cells in pixels on different devices.' priority: 80>
+	self
+		styleAt: '--mdc-layout-grid-gutter-desktop' put: anInteger1 asString , 'px';
+		styleAt: '--mdc-layout-grid-gutter-tablet' put: anInteger2 asString , 'px';
+		styleAt: '--mdc-layout-grid-gutter-phone' put: anInteger3 asString , 'px'
+]
+
+{ #category : #options }
 MDCGrid >> fixedColumnWidth: anInteger [
 	<mdcApi:
 		'Optional, specifies the grid should have fixed column width of the value passed as parameter in pixels. Cells on multiple columns will also includes the margins in their size. This option applies the same width on desktop, tablet and mobile.'
@@ -76,4 +91,27 @@ MDCGrid >> initialize [
 	<mdcConstructor: #mdcGrid: description: 'Creates a grid wrapper to contain a grid with implicit content.'>
 	super initialize.
 	self mdcClass: 'layout-grid'
+]
+
+{ #category : #options }
+MDCGrid >> margin: anInteger [
+	<mdcApi: 'Optional, specifies the space between the edge of the grid and the edge of the first cell in pixels. This option applies the same margin on desktop, tablet and mobile.' priority: 50>
+	self marginDesktop: anInteger tablet: anInteger phone: anInteger
+]
+
+{ #category : #options }
+MDCGrid >> marginDesktop: anInteger1 tablet: anInteger2 phone: anInteger3 [
+	<mdcApi: 'Optional, specifies the space between the edge of the grid and the edge of the first cell in pixel on different devices.' priority: 60>
+	self
+		styleAt: '--mdc-layout-grid-margin-desktop' put: anInteger1 asString , 'px';
+		styleAt: '--mdc-layout-grid-margin-tablet' put: anInteger2 asString , 'px';
+		styleAt: '--mdc-layout-grid-margin-phone' put: anInteger3 asString , 'px'
+]
+
+{ #category : #options }
+MDCGrid >> noSpacing [
+	<mdcApi: 'Optional, remove the margin and cell spacing of the grid. All cells will stick to each others and to the borders of the grid.' priority: 90>
+	self
+		margin: 0;
+		cellSpacing: 0
 ]

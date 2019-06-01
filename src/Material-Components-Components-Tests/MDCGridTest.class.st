@@ -30,6 +30,26 @@ MDCGridTest >> testBareBrush [
 ]
 
 { #category : #tests }
+MDCGridTest >> testCellSpacing [
+	self
+		assert: [ :html | 
+			html mdcGrid
+				cellSpacing: 10;
+				with: 'Test' ]
+		generates: '<div class="mdc-layout-grid" style="--mdc-layout-grid-gutter-desktop:10px;--mdc-layout-grid-gutter-tablet:10px;--mdc-layout-grid-gutter-phone:10px">Test</div>'
+]
+
+{ #category : #tests }
+MDCGridTest >> testCellSpacingDesktopTabletPhone [
+	self
+		assert: [ :html | 
+			html mdcGrid
+				cellSpacingDesktop: 30 tablet: 20 phone: 10;
+				with: 'Test' ]
+		generates: '<div class="mdc-layout-grid" style="--mdc-layout-grid-gutter-desktop:30px;--mdc-layout-grid-gutter-tablet:20px;--mdc-layout-grid-gutter-phone:10px">Test</div>'
+]
+
+{ #category : #tests }
 MDCGridTest >> testFixedColumnWidth [
 	self
 		assert: [ :html | 
@@ -49,6 +69,37 @@ MDCGridTest >> testFixedColumnWidthDesktopTabletPhone [
 				with: 'Test' ]
 		generates:
 			'<div class="mdc-layout-grid mdc-layout-grid--fixed-column-width" style="--mdc-layout-grid-column-width-desktop:40px;--mdc-layout-grid-column-width-tablet:30px;--mdc-layout-grid-column-width-phone:20px">Test</div>'
+]
+
+{ #category : #tests }
+MDCGridTest >> testMargin [
+	self
+		assert: [ :html | 
+			html mdcGrid
+				margin: 30;
+				with: 'Test' ]
+		generates: '<div class="mdc-layout-grid" style="--mdc-layout-grid-margin-desktop:30px;--mdc-layout-grid-margin-tablet:30px;--mdc-layout-grid-margin-phone:30px">Test</div>'
+]
+
+{ #category : #tests }
+MDCGridTest >> testMarginDesktopTabletPhone [
+	self
+		assert: [ :html | 
+			html mdcGrid
+				marginDesktop: 30 tablet: 20 phone: 10;
+				with: 'Test' ]
+		generates: '<div class="mdc-layout-grid" style="--mdc-layout-grid-margin-desktop:30px;--mdc-layout-grid-margin-tablet:20px;--mdc-layout-grid-margin-phone:10px">Test</div>'
+]
+
+{ #category : #tests }
+MDCGridTest >> testNoSpacing [
+	self
+		assert: [ :html | 
+			html mdcGrid
+				noSpacing;
+				with: 'Test' ]
+		generates:
+			'<div class="mdc-layout-grid" style="--mdc-layout-grid-margin-desktop:0px;--mdc-layout-grid-margin-tablet:0px;--mdc-layout-grid-margin-phone:0px;--mdc-layout-grid-gutter-desktop:0px;--mdc-layout-grid-gutter-tablet:0px;--mdc-layout-grid-gutter-phone:0px">Test</div>'
 ]
 
 { #category : #tests }

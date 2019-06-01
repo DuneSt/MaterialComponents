@@ -66,6 +66,13 @@ MDCLayoutGridDemoScreen >> gridLayout [
 ]
 
 { #category : #sections }
+MDCLayoutGridDemoScreen >> gridSpacings [ 
+	^ OrderedDictionary new
+		add: 'Grid spacings' -> #renderGridSpacingsDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
 MDCLayoutGridDemoScreen >> nestedGridLayout [ 
 	^ OrderedDictionary new
 		add: 'Nested grid' -> #renderNestedGridDemoOn:;
@@ -178,6 +185,26 @@ MDCLayoutGridDemoScreen >> renderGridDemoOn: html [
 ]
 
 { #category : #code }
+MDCLayoutGridDemoScreen >> renderGridSpacingsDemoOn: html [
+	html mdcGrid
+		mdcElevation: 4;
+		margin: 10;
+		cellSpacing: 20;
+		with: [ html mdcInnerGrid with: [ 4 timesRepeat: [ html mdcCell: 3 size: 3 ] ] ].
+	html break.
+	html mdcGrid
+		mdcElevation: 4;
+		marginDesktop: 30 tablet: 20 phone: 10;
+		cellSpacingDesktop: 40 tablet: 30 phone: 20;
+		with: [ html mdcInnerGrid with: [ 4 timesRepeat: [ html mdcCell: 3 size: 3 ] ] ].
+	html break.
+	html mdcGrid
+		mdcElevation: 4;
+		noSpacing;
+		with: [ html mdcInnerGrid with: [ 4 timesRepeat: [ html mdcCell: 3 size: 3 ] ] ]
+]
+
+{ #category : #code }
 MDCLayoutGridDemoScreen >> renderNestedGridDemoOn: html [
 	html mdcGrid
 		mdcElevation: 4;
@@ -197,16 +224,12 @@ MDCLayoutGridDemoScreen >> renderScreenContentOn: html [
 		render: self cellPositions fullWidth: true on: html;
 		render: self cellsOrder fullWidth: true on: html;
 		render: self fixedColumnWidth fullWidth: true on: html;
-		render: self gridAlignment fullWidth: true on: html
+		render: self gridAlignment fullWidth: true on: html;
+		render: self gridSpacings fullWidth: true on: html
 ]
 
 { #category : #rendering }
 MDCLayoutGridDemoScreen >> renderTitleComponentContent: html [
 	super renderTitleComponentContent: html.
 	html paragraph: [ html strong: 'Note: For the demo''s sake, grids and cells colors are updated in the style to make them visible.' ]
-]
-
-{ #category : #accessing }
-MDCLayoutGridDemoScreen >> warningMessage [
-	^ 'Grid components are in progress and not finished.'
 ]
