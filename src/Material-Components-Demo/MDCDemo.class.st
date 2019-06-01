@@ -23,6 +23,9 @@ Class {
 		'componentToDisplay',
 		'componentInstances'
 	],
+	#classVars : [
+		'Version'
+	],
 	#category : #'Material-Components-Demo-Core'
 }
 
@@ -77,7 +80,12 @@ MDCDemo class >> open [
 
 { #category : #versions }
 MDCDemo class >> version [
-	^ 'dev'
+	^ Version ifNil: [ 'dev' ]
+]
+
+{ #category : #versions }
+MDCDemo class >> version: aString [
+	Version := aString
 ]
 
 { #category : #hooks }
