@@ -158,7 +158,7 @@ MDCDemoScreen >> renderDocumentationOn: html [
 
 { #category : #rendering }
 MDCDemoScreen >> renderOptionsOf: class on: html [
-	^ (Pragma allNamed: #mdcApi:priority: in: class)
+	^ (Pragma allNamed: #mdcApi:priority: from: class to: WATagBrush)
 		ifNotEmpty: [ :pragmas | 
 			html paragraph: 'Options: '.
 			html

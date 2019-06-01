@@ -33,7 +33,7 @@ Examples
 Class {
 	#name : #MDCAnchorButton,
 	#superclass : #WAAnchorTag,
-	#traits : 'TMDCButton + TMDCRipples',
-	#classTraits : 'TMDCButton classTrait + TMDCRipples classTrait',
+	#traits : 'TMDCButton',
+	#classTraits : 'TMDCButton classTrait',
 	#category : #'Material-Components-Components-Buttons'
 }

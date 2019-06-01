@@ -38,3 +38,11 @@ WATagBrush >> mdcTopAppBarFixedAdjust [
 WATagBrush >> styleAt: aString put: aValue [
 	self style: aString , ':' , aValue asString
 ]
+
+{ #category : #'*Material-Components-Components' }
+WATagBrush >> withRipple [
+	<mdcApi: 'Adds a ripple to the element with the element is clicked.' priority: 300>
+	self
+		mdcClass: 'ripple-surface';
+		mdcClass: 'with-ripple'
+]
