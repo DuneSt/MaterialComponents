@@ -52,6 +52,13 @@ MDCLayoutGridDemoScreen >> fixedColumnWidth [
 ]
 
 { #category : #sections }
+MDCLayoutGridDemoScreen >> gridAlignment [ 
+	^ OrderedDictionary new
+		add: 'Grid alignment' -> #renderGridAlignmentDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
 MDCLayoutGridDemoScreen >> gridLayout [ 
 	^ OrderedDictionary new
 		add: 'Responsive grid' -> #renderGridDemoOn:;
@@ -129,6 +136,26 @@ MDCLayoutGridDemoScreen >> renderFixedColumnWidthDemoOn: html [
 ]
 
 { #category : #code }
+MDCLayoutGridDemoScreen >> renderGridAlignmentDemoOn: html [
+	html mdcGrid
+		mdcElevation: 4;
+		style: 'width: 50%;';
+		with: [ html mdcInnerGrid with: [ 4 timesRepeat: [ html mdcCell: 3 size: 3 ] ] ].
+	html break.
+	html mdcGrid
+		mdcElevation: 4;
+		alignLeft;
+		style: 'width: 50%;';
+		with: [ html mdcInnerGrid with: [ 4 timesRepeat: [ html mdcCell: 3 size: 3 ] ] ].
+	html break.
+	html mdcGrid
+		mdcElevation: 4;
+		alignRight;
+		style: 'width: 50%;';
+		with: [ html mdcInnerGrid with: [ 4 timesRepeat: [ html mdcCell: 3 size: 3 ] ] ]
+]
+
+{ #category : #code }
 MDCLayoutGridDemoScreen >> renderGridDemoOn: html [
 	html mdcGrid
 		mdcElevation: 4;
@@ -169,7 +196,8 @@ MDCLayoutGridDemoScreen >> renderScreenContentOn: html [
 		render: self nestedGridLayout fullWidth: true on: html;
 		render: self cellPositions fullWidth: true on: html;
 		render: self cellsOrder fullWidth: true on: html;
-		render: self fixedColumnWidth fullWidth: true on: html
+		render: self fixedColumnWidth fullWidth: true on: html;
+		render: self gridAlignment fullWidth: true on: html
 ]
 
 { #category : #rendering }

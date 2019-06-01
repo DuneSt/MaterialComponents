@@ -39,6 +39,18 @@ Class {
 }
 
 { #category : #options }
+MDCGrid >> alignLeft [
+	<mdcApi: 'Optional, specifies the alignment of the whole grid to be at the left in case the grid does not takes the full width' priority: 30>
+	self mdcClass: 'layout-grid--align-left'
+]
+
+{ #category : #options }
+MDCGrid >> alignRight [
+	<mdcApi: 'Optional, specifies the alignment of the whole grid to be at the right in case the grid does not takes the full width' priority: 30>
+	self mdcClass: 'layout-grid--align-right'
+]
+
+{ #category : #options }
 MDCGrid >> fixedColumnWidth: anInteger [
 	<mdcApi:
 		'Optional, specifies the grid should have fixed column width of the value passed as parameter in pixels. Cells on multiple columns will also includes the margins in their size. This option applies the same width on desktop, tablet and mobile.'
