@@ -52,3 +52,11 @@ TMDCButton >> unelevated [
 	<mdcApi: 'Optional. Styles a contained button that is flush with the surface.' priority: 20>
 	self mdcClass: 'button--unelevated'
 ]
+
+{ #category : #options }
+TMDCButton >> withRipple [
+	"Override because buttons already are surfaces."
+
+	<mdcApi: 'Adds a ripple to the element with the element is clicked.' priority: 300>
+	self mdcClass: 'with-ripple'
+]
