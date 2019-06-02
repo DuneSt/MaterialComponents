@@ -79,6 +79,11 @@ MDCLayoutGridDemoScreen >> nestedGridLayout [
 		yourself
 ]
 
+{ #category : #rendering }
+MDCLayoutGridDemoScreen >> pageNotes [
+	^ 'Note: For the demo''s sake, grids and cells colors are updated in the style to make them visible.'
+]
+
 { #category : #code }
 MDCLayoutGridDemoScreen >> renderCellOrderDemoOn: html [
 	html mdcGrid
@@ -226,10 +231,4 @@ MDCLayoutGridDemoScreen >> renderScreenContentOn: html [
 		render: self fixedColumnWidth fullWidth: true on: html;
 		render: self gridAlignment fullWidth: true on: html;
 		render: self gridSpacings fullWidth: true on: html
-]
-
-{ #category : #rendering }
-MDCLayoutGridDemoScreen >> renderTitleComponentContent: html [
-	super renderTitleComponentContent: html.
-	html paragraph: [ html strong: 'Note: For the demo''s sake, grids and cells colors are updated in the style to make them visible.' ]
 ]

@@ -1,3 +1,9 @@
+"
+Description
+--------------------
+
+I am a screen containing divers demo on MDC tab bar.
+"
 Class {
 	#name : #MDCTabBarDemoScreen,
 	#superclass : #MDCComponentDemo,
@@ -21,10 +27,32 @@ MDCTabBarDemoScreen class >> title [
 
 { #category : #accessing }
 MDCTabBarDemoScreen >> actualClasses [
-	^ {  }
+	^ { MDCTabBar }
+]
+
+{ #category : #accessing }
+MDCTabBarDemoScreen >> pageNotes [
+	^ 'Note: Some subcomposants of the tab bar can be used individually outside a tab bar.'
 ]
 
 { #category : #rendering }
 MDCTabBarDemoScreen >> renderScreenContentOn: html [
-	
+	self render: self tabBar fullWidth: true on: html
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderTabBarDemoOn: html [
+	html mdcTabBar: [  ]
+]
+
+{ #category : #sections }
+MDCTabBarDemoScreen >> tabBar [ 
+	^ OrderedDictionary new
+		add: 'Tab bar' -> #renderTabBarDemoOn:;
+		yourself
+]
+
+{ #category : #accessing }
+MDCTabBarDemoScreen >> warningMessage [
+	^ 'Page under construction.'
 ]

@@ -1,5 +1,7 @@
 Trait {
 	#name : #TMDCAutoInitBrush,
+	#traits : 'TMDCBrush',
+	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Traits'
 }
 

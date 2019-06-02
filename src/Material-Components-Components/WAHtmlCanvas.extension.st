@@ -220,6 +220,18 @@ WAHtmlCanvas >> mdcNavigationList: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabBar [
+	^ self brush: MDCTabBar new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabBar: aBlock [
+	^ self mdcTabBar
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcTopAppBar [
 	^ self brush: MDCTopAppBar new
 ]

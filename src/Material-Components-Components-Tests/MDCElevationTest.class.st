@@ -1,7 +1,7 @@
 Class {
 	#name : #MDCElevationTest,
 	#superclass : #SGTAbstractSeasideTestCase,
-	#category : #'Material-Components-Components-Tests-LayoutGrid'
+	#category : #'Material-Components-Components-Tests-Core'
 }
 
 { #category : #tests }

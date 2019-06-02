@@ -8,8 +8,8 @@ MDC Top App Bar acts as a container for items such as application title, navigat
 Class {
 	#name : #MDCTopAppBar,
 	#superclass : #WATagBrush,
-	#traits : 'TMDCAutoInitBrush + TMDCBrush',
-	#classTraits : 'TMDCAutoInitBrush classTrait + TMDCBrush classTrait',
+	#traits : 'TMDCAutoInitBrush',
+	#classTraits : 'TMDCAutoInitBrush classTrait',
 	#category : #'Material-Components-Components-Layout'
 }
 

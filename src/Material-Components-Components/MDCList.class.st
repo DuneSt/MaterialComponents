@@ -1,8 +1,8 @@
 Class {
 	#name : #MDCList,
 	#superclass : #WAUnorderedListTag,
-	#traits : 'TMDCBrush + TMDCAutoInitBrush',
-	#classTraits : 'TMDCBrush classTrait + TMDCAutoInitBrush classTrait',
+	#traits : 'TMDCAutoInitBrush',
+	#classTraits : 'TMDCAutoInitBrush classTrait',
 	#instVars : [
 		'tag'
 	],

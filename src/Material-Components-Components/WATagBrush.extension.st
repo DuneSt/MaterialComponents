@@ -39,6 +39,11 @@ WATagBrush >> mdcTopAppBarFixedAdjust [
 ]
 
 { #category : #'*Material-Components-Components' }
+WATagBrush >> role: aString [
+	self attributeAt: 'role' put: aString
+]
+
+{ #category : #'*Material-Components-Components' }
 WATagBrush >> styleAt: aString put: aValue [
 	self style: aString , ':' , aValue asString
 ]

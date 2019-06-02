@@ -63,6 +63,13 @@ MDCDemoScreen >> description [
 ]
 
 { #category : #accessing }
+MDCDemoScreen >> pageNotes [
+	"Optional notes about a page"
+
+	^ nil
+]
+
+{ #category : #accessing }
 MDCDemoScreen >> pathName [
 	^ self class pathName
 ]
@@ -187,7 +194,8 @@ MDCDemoScreen >> renderTitleComponentContent: html [
 		level3;
 		with: self title.
 	html paragraph: self description.
-	^ self renderWarningMessageOn: html
+	self pageNotes ifNotNil: [ :notes | html paragraph: [ html strong: notes ] ].
+	self renderWarningMessageOn: html
 ]
 
 { #category : #rendering }

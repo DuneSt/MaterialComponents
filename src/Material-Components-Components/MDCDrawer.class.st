@@ -1,8 +1,8 @@
 Class {
 	#name : #MDCDrawer,
 	#superclass : #WATagBrush,
-	#traits : 'TMDCBrush + TMDCAutoInitBrush',
-	#classTraits : 'TMDCBrush classTrait + TMDCAutoInitBrush classTrait',
+	#traits : 'TMDCAutoInitBrush',
+	#classTraits : 'TMDCAutoInitBrush classTrait',
 	#instVars : [
 		'isModal'
 	],
