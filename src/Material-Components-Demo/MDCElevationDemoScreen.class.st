@@ -25,6 +25,11 @@ MDCElevationDemoScreen class >> title [
 	^ 'Elevation'
 ]
 
+{ #category : #accessing }
+MDCElevationDemoScreen >> actualClasses [
+	^ {  }
+]
+
 { #category : #sections }
 MDCElevationDemoScreen >> elevations [
 	^ OrderedDictionary new

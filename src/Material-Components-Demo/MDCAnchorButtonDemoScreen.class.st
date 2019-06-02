@@ -22,7 +22,7 @@ MDCAnchorButtonDemoScreen class >> icon [
 
 { #category : #accessing }
 MDCAnchorButtonDemoScreen class >> title [
-	^ 'Anchor buttons'
+	^ 'Anchor Buttons'
 ]
 
 { #category : #accessing }

@@ -22,7 +22,7 @@ MDCLayoutGridDemoScreen class >> icon [
 
 { #category : #accessing }
 MDCLayoutGridDemoScreen class >> title [
-	^ 'Layout grid'
+	^ 'Layout Grid'
 ]
 
 { #category : #accessing }
