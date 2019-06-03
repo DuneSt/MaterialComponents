@@ -220,6 +220,18 @@ WAHtmlCanvas >> mdcNavigationList: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTab [
+	^ self brush: MDCTab new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTab: aBlock [
+	^ self mdcTab
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcTabBar [
 	^ self brush: MDCTabBar new
 ]
@@ -229,6 +241,105 @@ WAHtmlCanvas >> mdcTabBar: aBlock [
 	^ self mdcTabBar
 		with: aBlock
 		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabContent [
+	^ self brush: MDCTabContent new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabContent: aBlock [
+	^ self mdcTabContent
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabIndicator [
+	^ self brush: MDCTabIndicator new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabIndicator: aBlock [
+	^ self mdcTabIndicator
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabIndicatorContent [
+	^ self brush: MDCTabIndicatorContent new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabIndicatorContent: aBlock [
+	^ self mdcTabIndicatorContent
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabLabel [
+	^ self brush: MDCTabLabel new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabLabel: aBlock [
+	^ self mdcTabLabel
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabRipple [
+	^ self brush: MDCTabRipple new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabRipple: aBlock [
+	self error: 'MDC tab ripple should not have any content'
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabScroller [
+	^ self brush: MDCTabScroller new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabScroller: aBlock [
+	^ self mdcTabScroller
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabScrollerArea [
+	^ self brush: MDCTabScrollerArea new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabScrollerArea: aBlock [
+	^ self mdcTabScrollerArea
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabScrollerContent [
+	^ self brush: MDCTabScrollerContent new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabScrollerContent: aBlock [
+	^ self mdcTabScrollerContent
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabSimpleScroller: aBlock [
+	^ self mdcTabScroller: [ self mdcTabScrollerArea: [ self mdcTabScrollerContent: aBlock ] ]
 ]
 
 { #category : #'*Material-Components-Components' }

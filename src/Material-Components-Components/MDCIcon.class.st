@@ -21,6 +21,13 @@ MDCIcon >> initialize [
 ]
 
 { #category : #accessing }
+MDCIcon >> tabIcon [
+	self
+		mdcClass: 'tab__icon';
+		attributeAt: 'aria-hidden' put: 'true'
+]
+
+{ #category : #accessing }
 MDCIcon >> tag [
 	^ 'i'
 ]
