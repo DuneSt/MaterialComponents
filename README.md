@@ -74,7 +74,7 @@ You can find a demo at: [https://mdc.ferlicot.fr/](https://mdc.ferlicot.fr/)
 ## Latest supported Dependencies
 
 - [Material Icons v3.0.1](https://github.com/google/material-design-icons/releases/tag/3.0.1)
-- [Material Components Web v3.0.0-0](https://github.com/material-components/material-components-web/releases/tag/v3.0.0-0)
+- [Material Components Web v2.3.0](https://github.com/material-components/material-components-web/releases/tag/v2.3.0)
 
 ## Smalltalk versions compatibility
 
