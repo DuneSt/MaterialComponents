@@ -10,6 +10,11 @@ MDCTabIndicatorContentTest >> testBareBrush [
 ]
 
 { #category : #tests }
+MDCTabIndicatorContentTest >> testIcon [
+	self assert: [ :html | html mdcTabIndicatorContent icon; with: 'Test' ] generates: '<span class="mdc-tab-indicator__content mdc-tab-indicator__content--icon material-icons" aria-hidden="true">Test</span>'
+]
+
+{ #category : #tests }
 MDCTabIndicatorContentTest >> testUnderline [
 	self assert: [ :html | html mdcTabIndicatorContent underline; with: 'Test' ] generates: '<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">Test</span>'
 ]

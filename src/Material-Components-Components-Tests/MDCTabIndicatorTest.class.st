@@ -48,6 +48,16 @@ MDCTabIndicatorTest >> testBeActiveIf [
 ]
 
 { #category : #tests }
+MDCTabIndicatorTest >> testFade [
+	self
+		assert: [ :html | 
+			html mdcTabIndicator
+				fade;
+				with: 'Test' ]
+		generates: '<span class="mdc-tab-indicator mdc-tab-indicator--fade">Test</span>'
+]
+
+{ #category : #tests }
 MDCTabIndicatorTest >> testWithContent [
 	self assert: [ :html | html mdcTabIndicator: 'Test' ] generates: '<span class="mdc-tab-indicator">Test</span>'
 ]

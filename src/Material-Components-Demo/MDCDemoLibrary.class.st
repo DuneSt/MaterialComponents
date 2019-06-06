@@ -550,6 +550,11 @@ MDCDemoLibrary >> mcDemoCss [
 	align-items: center;
 }
 
+/* Tabs */
+
+.mdc-demo-tabbar .mdc-list {
+    min-height: 350px;
+}
 
 
 

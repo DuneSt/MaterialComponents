@@ -81,7 +81,7 @@ MDCLayoutGridDemoScreen >> nestedGridLayout [
 
 { #category : #rendering }
 MDCLayoutGridDemoScreen >> pageNotes [
-	^ 'Note: For the demo''s sake, grids and cells colors are updated in the style to make them visible.'
+	^ #('Note: For the demo''s sake, grids and cells colors are updated in the style to make them visible.')
 ]
 
 { #category : #code }

@@ -276,6 +276,14 @@ WAHtmlCanvas >> mdcTabIcon: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabIconIndicatorContent: aBlock [
+	^ self mdcTabIndicatorContent
+		icon;
+		with: aBlock;
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcTabIndicator [
 	^ self brush: MDCTabIndicator new
 ]
@@ -360,6 +368,13 @@ WAHtmlCanvas >> mdcTabScrollerContent: aBlock [
 { #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcTabSimpleScroller: aBlock [
 	^ self mdcTabScroller: [ self mdcTabScrollerArea: [ self mdcTabScrollerContent: aBlock ] ]
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabUnderlinedIndicatorContent [
+	^ self mdcTabIndicatorContent
+		underline;
+		yourself
 ]
 
 { #category : #'*Material-Components-Components' }

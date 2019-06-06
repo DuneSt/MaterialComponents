@@ -18,6 +18,12 @@ MDCTabIndicator >> beActiveIf: aValuable [
 	aValuable value ifTrue: [ self beActive ]
 ]
 
+{ #category : #options }
+MDCTabIndicator >> fade [
+	<mdcApi: 'Optional. Sets up the tab indicator to fade in on activation and fade out on deactivation instead of moving between tabs.' priority: 30>
+	self mdcClass: 'tab-indicator--fade'
+]
+
 { #category : #initialization }
 MDCTabIndicator >> initialize [
 	<mdcConstructor: #mdcTabIndicator description: 'Creates a tab indicator that is a visual guide that shows which Tab is active.'>

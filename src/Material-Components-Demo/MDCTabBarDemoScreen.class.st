@@ -7,6 +7,9 @@ I am a screen containing divers demo on MDC tab bar.
 Class {
 	#name : #MDCTabBarDemoScreen,
 	#superclass : #MDCComponentDemo,
+	#instVars : [
+		'datas'
+	],
 	#category : #'Material-Components-Demo-Components2'
 }
 
@@ -27,41 +30,52 @@ MDCTabBarDemoScreen class >> title [
 
 { #category : #accessing }
 MDCTabBarDemoScreen >> actualClasses [
-	^ { MDCTabBar. MDCTabScroller. MDCTabScrollerArea. MDCTabScrollerContent }
+	^ {MDCTabBar . MDCTabScroller . MDCTabScrollerArea . MDCTabScrollerContent . MDCTab . MDCTabContent . MDCTabLabel . MDCTabIndicator . MDCTabIndicatorContent}
+]
+
+{ #category : #accessing }
+MDCTabBarDemoScreen >> datas [
+	^ datas
+		ifNil: [ datas := OrderedDictionary
+				with: 'Furry' -> (#pets -> #('Donald' 'Robin hood' 'Baloo' 'Malefic' 'The beast'))
+				with: 'Human' -> (#accessibility -> #('Peter pan' 'Casimodo' 'Belle'))
+				with: 'Other' -> (#help -> #('Genie' 'Stitch')) ]
 ]
 
 { #category : #accessing }
 MDCTabBarDemoScreen >> pageNotes [
-	^ 'Note: Some subcomposants of the tab bar can be used individually outside a tab bar.'
+	^ #('Note: Some subcomposants of the tab bar can be used individually outside a tab bar.' 'Note 2: For readability the datas to display will only be included in the first example.')
+]
+
+{ #category : #rendering }
+MDCTabBarDemoScreen >> renderListContentFor: kind on: html [
+	^ (self datas at: kind) value do: [ :each | html mdcListItem: each ]
 ]
 
 { #category : #rendering }
 MDCTabBarDemoScreen >> renderScreenContentOn: html [
 	self
 		render: self tabBar fullWidth: true on: html;
-		render: self simpleTabBar fullWidth: true on: html
+		render: self simpleTabBar on: html;
+		render: self tabIndicatorOptions on: html
 ]
 
 { #category : #code }
 MDCTabBarDemoScreen >> renderSimpleTabBarDemoOn: html [
-	| kinds |
-	kinds := OrderedDictionary
-		with: 'Furry' -> (#pets -> #('Donald' 'Robin hood' 'Baloo' 'Malefic' 'The beast'))
-		with: 'Human' -> (#accessibility -> #('Peter pan' 'Casimodo' 'Belle'))
-		with: 'Other' -> (#help -> #('Genie' 'Stitch')).
-	html mdcTabBar
+	html div
 		mdcElevation: 4;
-		with: [ html
-				mdcTabSimpleScroller: [ kinds
-						keysAndValuesDo: [ :kind :asso | 
-							html
-								mdcSimpleTabActive: kind = 'Furry'
-								customization: [ :tab | tab onClick: ((html jQuery id: #demo2) load html: [ :canvas | (kinds at: kind) value do: [ :each | html mdcListItem: each ] ]) ]
-								with: [ html mdcTabIcon: asso key.
-									html mdcTabLabel: kind ] ] ].
-			html mdcList
+		with: [ html mdcList
 				id: #demo2;
-				with: [ (kinds at: 'Furry') value do: [ :each | html mdcListItem: each ] ] ]
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html
+						mdcTabSimpleScroller: [ self datas
+								keysAndValuesDo: [ :kind :asso | 
+									html
+										mdcSimpleTabActive: kind = 'Furry'
+										customization: [ :tab | tab onClick: ((html jQuery id: #demo2) load html: [ :canvas | self renderListContentFor: kind on: html ]) ]
+										with: [ html mdcTabIcon: asso key.
+											html mdcTabLabel: kind ] ] ] ] ]
 ]
 
 { #category : #code }
@@ -73,27 +87,73 @@ MDCTabBarDemoScreen >> renderTabBarDemoOn: html [
 		with: 'Furry' -> (#pets -> #('Donald' 'Robin hood' 'Baloo' 'Malefic' 'The beast'))
 		with: 'Human' -> (#accessibility -> #('Peter pan' 'Casimodo' 'Belle'))
 		with: 'Other' -> (#help -> #('Genie' 'The dwarves' 'Stitch')).
-	html mdcTabBar
+	html div
 		mdcElevation: 4;
 		with: [ html
-				mdcTabScroller: [ html
-						mdcTabScrollerArea: [ html
-								mdcTabScrollerContent: [ kinds
-										keysAndValuesDo: [ :kind :asso | 
-											html mdcTab
-												beActiveIf: kind = 'Furry';
-												onClick: ((html jQuery id: #demo1) load html: [ :canvas | (kinds at: kind) value do: [ :each | html mdcListItem: each ] ]);
-												with: [ html
-														mdcTabContent: [ html mdcIcon
-																tabIcon;
-																with: asso key.
-															html mdcTabLabel: kind ].
-													html mdcTabIndicator
+				mdcTabBar: [ html
+						mdcTabScroller: [ html
+								mdcTabScrollerArea: [ html
+										mdcTabScrollerContent: [ kinds
+												keysAndValuesDo: [ :kind :asso | 
+													html mdcTab
 														beActiveIf: kind = 'Furry';
-														with: [ html mdcTabIndicatorContent underline ] ] ] ] ] ].
+														onClick: ((html jQuery id: #demo1) load html: [ :canvas | (kinds at: kind) value do: [ :each | html mdcListItem: each ] ]);
+														with: [ html
+																mdcTabContent: [ html mdcIcon
+																		tabIcon;
+																		with: asso key.
+																	html mdcTabLabel: kind ].
+															html mdcTabIndicator
+																beActiveIf: kind = 'Furry';
+																with: [ html mdcTabUnderlinedIndicatorContent ] ] ] ] ] ] ].
 			html mdcList
 				id: #demo1;
 				with: [ (kinds at: 'Furry') value do: [ :each | html mdcListItem: each ] ] ]
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderTabIndicatorIconFadingDemoOn: html [
+	html div
+		mdcElevation: 4;
+		with: [ html mdcList
+				id: #demo3;
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html
+						mdcTabSimpleScroller: [ self datas
+								keysAndValuesDo: [ :kind :asso | 
+									html mdcTab
+										beActiveIf: kind = 'Furry';
+										onClick: ((html jQuery id: #demo3) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										with: [ html
+												mdcTabContent: [ html mdcTabIcon: asso key.
+													html mdcTabLabel: kind ].
+											html mdcTabIndicator
+												fade;
+												beActiveIf: kind = 'Furry';
+												with: [ html mdcTabIconIndicatorContent: #done ] ] ] ] ] ]
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderTabIndicatorIconSlidingDemoOn: html [
+	html div
+		mdcElevation: 4;
+		with: [ html mdcList
+				id: #demo4;
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html
+						mdcTabSimpleScroller: [ self datas
+								keysAndValuesDo: [ :kind :asso | 
+									html mdcTab
+										beActiveIf: kind = 'Furry';
+										onClick: ((html jQuery id: #demo4) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										with: [ html
+												mdcTabContent: [ html mdcTabIcon: asso key.
+													html mdcTabLabel: kind ].
+											html mdcTabIndicator
+												beActiveIf: kind = 'Furry';
+												with: [ html mdcTabIconIndicatorContent: #done ] ] ] ] ] ]
 ]
 
 { #category : #sections }
@@ -107,6 +167,14 @@ MDCTabBarDemoScreen >> simpleTabBar [
 MDCTabBarDemoScreen >> tabBar [ 
 	^ OrderedDictionary new
 		add: 'Tab bar' -> #renderTabBarDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
+MDCTabBarDemoScreen >> tabIndicatorOptions [
+	^ OrderedDictionary new
+		add: 'Sliding Icon Indicator' -> #renderTabIndicatorIconSlidingDemoOn:;
+		add: 'Fading Icon Indicator' -> #renderTabIndicatorIconFadingDemoOn:;
 		yourself
 ]
 
