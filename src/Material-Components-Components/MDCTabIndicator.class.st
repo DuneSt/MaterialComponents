@@ -1,8 +1,8 @@
 Class {
 	#name : #MDCTabIndicator,
 	#superclass : #MDCSpanTag,
-	#traits : 'TMDCAutoInitBrush',
-	#classTraits : 'TMDCAutoInitBrush classTrait',
+	#traits : 'TMDCBrush',
+	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Tabs'
 }
 
@@ -23,7 +23,5 @@ MDCTabIndicator >> initialize [
 	<mdcConstructor: #mdcTabIndicator description: 'Creates a tab indicator that is a visual guide that shows which Tab is active.'>
 	<mdcConstructor: #mdcTabIndicator: description: 'Creates a tab indicator that is a visual guide that shows which Tab is active with implicit content.'>
 	super initialize.
-	self
-		mdcClass: 'tab-indicator';
-		autoInit
+	self mdcClass: 'tab-indicator'
 ]

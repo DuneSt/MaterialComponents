@@ -37,38 +37,70 @@ MDCTabBarDemoScreen >> pageNotes [
 
 { #category : #rendering }
 MDCTabBarDemoScreen >> renderScreenContentOn: html [
-	self render: self tabBar fullWidth: true on: html
+	self
+		render: self tabBar fullWidth: true on: html;
+		render: self simpleTabBar fullWidth: true on: html
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderSimpleTabBarDemoOn: html [
+	| kinds |
+	kinds := OrderedDictionary
+		with: 'Furry' -> (#pets -> #('Donald' 'Robin hood' 'Baloo' 'Malefic' 'The beast'))
+		with: 'Human' -> (#accessibility -> #('Peter pan' 'Casimodo' 'Belle'))
+		with: 'Other' -> (#help -> #('Genie' 'Stitch')).
+	html mdcTabBar
+		mdcElevation: 4;
+		with: [ html
+				mdcTabSimpleScroller: [ kinds
+						keysAndValuesDo: [ :kind :asso | 
+							html
+								mdcSimpleTabActive: kind = 'Furry'
+								customization: [ :tab | tab onClick: ((html jQuery id: #demo2) load html: [ :canvas | (kinds at: kind) value do: [ :each | html mdcListItem: each ] ]) ]
+								with: [ html mdcTabIcon: asso key.
+									html mdcTabLabel: kind ] ] ].
+			html mdcList
+				id: #demo2;
+				with: [ (kinds at: 'Furry') value do: [ :each | html mdcListItem: each ] ] ]
 ]
 
 { #category : #code }
 MDCTabBarDemoScreen >> renderTabBarDemoOn: html [
 	"This example do not use any syntactic sugar to show the vanilla way of creating tabs. Other examples will introduce simpler way to create tabs."
-	| kinds selected |
+
+	| kinds |
 	kinds := OrderedDictionary
 		with: 'Furry' -> (#pets -> #('Donald' 'Robin hood' 'Baloo' 'Malefic' 'The beast'))
 		with: 'Human' -> (#accessibility -> #('Peter pan' 'Casimodo' 'Belle'))
 		with: 'Other' -> (#help -> #('Genie' 'The dwarves' 'Stitch')).
-	selected := 'Furry'.
-	html div
+	html mdcTabBar
 		mdcElevation: 4;
 		with: [ html
-				mdcTabBar: [ html
-						mdcTabScroller: [ html
-								mdcTabScrollerArea: [ html
-										mdcTabScrollerContent: [ kinds
-												keysAndValuesDo: [ :kind :asso | 
-													html mdcTab
-														beActiveIf: kind = selected;
-														onClick: ((html jQuery id: #demo1) load html: [ :canvas | selected := kind. (kinds at: selected) value do: [ :each | html mdcListItem: each ] ]);
-														with: [ html
-																mdcTabContent: [ html mdcIcon
-																		tabIcon;
-																		with: asso key.
-																	html mdcTabLabel: kind ].
-															html mdcTabIndicator
-																beActiveIf: kind = selected;
-																with: [ html mdcTabIndicatorContent underline ] ] ] ] ] ] ].
-			html mdcList id: #demo1; with: [ (kinds at: selected) value do: [ :each | html mdcListItem: each ] ] ]
+				mdcTabScroller: [ html
+						mdcTabScrollerArea: [ html
+								mdcTabScrollerContent: [ kinds
+										keysAndValuesDo: [ :kind :asso | 
+											html mdcTab
+												beActiveIf: kind = 'Furry';
+												onClick: ((html jQuery id: #demo1) load html: [ :canvas | (kinds at: kind) value do: [ :each | html mdcListItem: each ] ]);
+												with: [ html
+														mdcTabContent: [ html mdcIcon
+																tabIcon;
+																with: asso key.
+															html mdcTabLabel: kind ].
+													html mdcTabIndicator
+														beActiveIf: kind = 'Furry';
+														with: [ html mdcTabIndicatorContent underline ] ] ] ] ] ].
+			html mdcList
+				id: #demo1;
+				with: [ (kinds at: 'Furry') value do: [ :each | html mdcListItem: each ] ] ]
+]
+
+{ #category : #sections }
+MDCTabBarDemoScreen >> simpleTabBar [ 
+	^ OrderedDictionary new
+		add: 'Tab bar with syntactic sugar' -> #renderSimpleTabBarDemoOn:;
+		yourself
 ]
 
 { #category : #sections }

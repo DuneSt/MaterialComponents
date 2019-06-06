@@ -28,6 +28,7 @@ TMDCTab >> beActiveIf: aValuable [
 TMDCTab >> initialize [
 	<mdcConstructor: #mdcTab description: 'Creates a tab to organize and allow navigation between groups of content that are related and at the same level of hierarchy. Each Tab governs the visibility of one group of content.'>
 	<mdcConstructor: #mdcTab: description: 'Creates a tab to organize and allow navigation between groups of content that are related and at the same level of hierarchy with implicit content.'>
+	<mdcConstructor: #mdcSimpleTabActive:customization:with: description: 'Creates a tab with a default indicator. Tab can be customized with a block and you can directly fill the content.'>
 	super initialize.
 	self
 		mdcClass: 'tab';

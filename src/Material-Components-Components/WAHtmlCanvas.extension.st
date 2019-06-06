@@ -220,6 +220,19 @@ WAHtmlCanvas >> mdcNavigationList: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcSimpleTabActive: aValuable customization: aBlock with: aContentBlock [
+	| tab |
+	tab := self mdcTab.
+	aBlock value: tab.
+	tab
+		beActiveIf: aValuable;
+		with: [ self mdcTabContent: aContentBlock.
+			self mdcTabIndicator
+				beActiveIf: aValuable;
+				with: [ self mdcTabIndicatorContent underline ] ]
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcTab [
 	^ self brush: MDCTab new
 ]
@@ -253,6 +266,13 @@ WAHtmlCanvas >> mdcTabContent: aBlock [
 	^ self mdcTabContent
 		with: aBlock
 		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcTabIcon: aBlock [
+	^ self mdcIcon
+		tabIcon;
+		with: aBlock
 ]
 
 { #category : #'*Material-Components-Components' }
