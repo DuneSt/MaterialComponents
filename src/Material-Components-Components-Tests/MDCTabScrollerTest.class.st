@@ -6,15 +6,10 @@ Class {
 
 { #category : #tests }
 MDCTabScrollerTest >> testBareBrush [
-	self assert: [ :html | html mdcTabScroller ] generates: '<div class="mdc-tab-scroller" data-mdc-auto-init="MDCTabScroller"></div>'
-]
-
-{ #category : #tests }
-MDCTabScrollerTest >> testIsAutoInitialized [
-	self assert: [ :html | html mdcTabScroller ] generatedIncludes: 'data-mdc-auto-init="MDCTabScroller"'
+	self assert: [ :html | html mdcTabScroller ] generates: '<div class="mdc-tab-scroller"></div>'
 ]
 
 { #category : #tests }
 MDCTabScrollerTest >> testWithContent [
-	self assert: [ :html | html mdcTabScroller: 'Test' ] generates: '<div class="mdc-tab-scroller" data-mdc-auto-init="MDCTabScroller">Test</div>'
+	self assert: [ :html | html mdcTabScroller: 'Test' ] generates: '<div class="mdc-tab-scroller">Test</div>'
 ]

@@ -1,7 +1,7 @@
 Trait {
 	#name : #TMDCTab,
-	#traits : 'TMDCAutoInitBrush',
-	#classTraits : 'TMDCAutoInitBrush classTrait',
+	#traits : 'TMDCBrush',
+	#classTraits : 'TMDCBrush classTrait',
 	#category : #'Material-Components-Components-Traits'
 }
 
@@ -31,8 +31,7 @@ TMDCTab >> initialize [
 	super initialize.
 	self
 		mdcClass: 'tab';
-		role: 'tab';
-		autoInit: 'MDCTab'.
+		role: 'tab'.
 		
 	self resetType
 ]
