@@ -37,7 +37,19 @@ TMDCTab >> initialize [
 	self resetType
 ]
 
+{ #category : #options }
+TMDCTab >> minWidth [
+	<mdcApi: 'Optional. Indicates that the tab should shrink in size to be as narrow as possible without causing text to wrap.' priority: 40>
+	self mdcClass: 'tab--min-width'
+]
+
 { #category : #initialization }
 TMDCTab >> resetType [
 	self explicitRequirement
+]
+
+{ #category : #options }
+TMDCTab >> stacked [
+	<mdcApi: 'Optional. Indicates that the tab icon and label should flow vertically instead of horizontally.' priority: 30>
+	self mdcClass: 'tab--stacked'
 ]

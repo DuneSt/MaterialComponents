@@ -52,12 +52,35 @@ MDCTabBarDemoScreen >> renderListContentFor: kind on: html [
 	^ (self datas at: kind) value do: [ :each | html mdcListItem: each ]
 ]
 
+{ #category : #code }
+MDCTabBarDemoScreen >> renderMinWidthTabsDemoOn: html [
+	html div
+		mdcElevation: 4;
+		style: 'min-width: 350px;';
+		with: [ html mdcList
+				id: #demo6;
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html
+						mdcTabSimpleScroller: [ self datas
+								keysAndValuesDo: [ :kind :asso | 
+									html mdcTab
+										minWidth;
+										beActiveIf: kind = 'Furry';
+										onClick: ((html jQuery id: #demo6) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										with: [ html mdcTabContent: [ html mdcTabIcon: asso key ].
+											html mdcTabIndicator
+												beActiveIf: kind = 'Furry';
+												with: [ html mdcTabUnderlinedIndicatorContent ] ] ] ] ] ]
+]
+
 { #category : #rendering }
 MDCTabBarDemoScreen >> renderScreenContentOn: html [
 	self
 		render: self tabBar fullWidth: true on: html;
 		render: self simpleTabBar on: html;
-		render: self tabIndicatorOptions on: html
+		render: self tabIndicatorOptions on: html;
+		render: self tabOptions on: html
 ]
 
 { #category : #code }
@@ -76,6 +99,29 @@ MDCTabBarDemoScreen >> renderSimpleTabBarDemoOn: html [
 										customization: [ :tab | tab onClick: ((html jQuery id: #demo2) load html: [ :canvas | self renderListContentFor: kind on: html ]) ]
 										with: [ html mdcTabIcon: asso key.
 											html mdcTabLabel: kind ] ] ] ] ]
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderStackedTabsDemoOn: html [
+	html div
+		mdcElevation: 4;
+		with: [ html mdcList
+				id: #demo5;
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html
+						mdcTabSimpleScroller: [ self datas
+								keysAndValuesDo: [ :kind :asso | 
+									html mdcTab
+										stacked;
+										beActiveIf: kind = 'Furry';
+										onClick: ((html jQuery id: #demo5) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										with: [ html
+												mdcTabContent: [ html mdcTabIcon: asso key.
+													html mdcTabLabel: kind ].
+											html mdcTabIndicator
+												beActiveIf: kind = 'Furry';
+												with: [ html mdcTabUnderlinedIndicatorContent ] ] ] ] ] ]
 ]
 
 { #category : #code }
@@ -175,6 +221,14 @@ MDCTabBarDemoScreen >> tabIndicatorOptions [
 	^ OrderedDictionary new
 		add: 'Sliding Icon Indicator' -> #renderTabIndicatorIconSlidingDemoOn:;
 		add: 'Fading Icon Indicator' -> #renderTabIndicatorIconFadingDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
+MDCTabBarDemoScreen >> tabOptions [
+	^ OrderedDictionary new
+		add: 'Stacked tabs' -> #renderStackedTabsDemoOn:;
+		add: 'Min width tabs' -> #renderMinWidthTabsDemoOn:;
 		yourself
 ]
 
