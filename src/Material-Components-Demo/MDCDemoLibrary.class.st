@@ -239,7 +239,6 @@ MDCDemoLibrary >> mcDemoCss [
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    background: #fafafa;
     color: #757575;
 }
 
@@ -332,10 +331,19 @@ MDCDemoLibrary >> mcDemoCss [
     -webkit-flex-grow: 1;
     flex-grow: 1;
     overflow: hidden;
+    background: #ECEFF1;
 }
 
 .mdc-components .mdc-components__page {
     min-height: 1000px;
+}
+
+.mdc-components .mdc-components__page .mdc-demo-panel {
+    padding-top: 50px;
+}
+
+.mdc-components .mdc-components__page > .mdc-tab-bar {
+    background-color: white;
 }
 
 .mdc-components__page-index{
@@ -465,6 +473,7 @@ MDCDemoLibrary >> mcDemoCss [
     border: 1px solid #eee;
     border-collapse: collapse;
     border-spacing: 0;
+    background-color: white;
 }
 
 .mdc-documentation th, .mdc-documentation td {
@@ -490,7 +499,7 @@ MDCDemoLibrary >> mcDemoCss [
 }
 
 .mdc-documentation tr:nth-child(2n) {
-    background-color: #ECEFF1;
+    background-color: #F5F5F5;
 }
 
 .mdc-documentation th:first-child, .mdc-documentation td:first-child {
@@ -548,12 +557,17 @@ MDCDemoLibrary >> mcDemoCss [
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+    background-color: white;
 }
 
 /* Tabs */
 
 .mdc-demo-tabbar .mdc-list {
     min-height: 350px;
+}
+
+.mdc-demo-tabbar .mdc-snippet-demo-container > div {
+    background-color: white;
 }
 
 

@@ -121,8 +121,9 @@ MDCDemoScreen >> renderConstructorsOf: class on: html [
 	(Pragma allNamed: #mdcConstructor:description: in: class)
 		ifNotEmpty: [ :pragmas | 
 			html paragraph: 'Constructors to send to Seaside''s canvas: '.
-			html
-				table: [ html
+			html table
+				mdcElevation: 2;
+				with: [ html
 						tableHead: [ html
 								tableRow: [ html
 										tableHeading: 'Selector';
@@ -143,8 +144,27 @@ MDCDemoScreen >> renderContentOn: html [
 		with: [ html div
 				mdcClass: 'component-title';
 				with: [ self renderTitleComponentContent: html ].
-			self renderScreenContentOn: html.
-			self renderDocumentationOn: html ]
+			html
+				mdcTabBar: [ html
+						mdcTabSimpleScroller: [ #('Demo' 'API')
+								do: [ :page | 
+									html
+										mdcSimpleTabActive: page = 'Demo'
+										customization: [ :tab | 
+											tab
+												onClick:
+													('Array.from( document.getElementsByClassName("mdc-demo-panel")).forEach((element) => { element.style.display = "none" }); document.getElementById("' , page asLowercase , '").style.display = "block";')
+														js ]
+										with: [ html mdcTabLabel: page ] ] ] ].
+			html div
+				id: 'demo';
+				mdcClass: 'demo-panel';
+				with: [ self renderScreenContentOn: html ].
+			html div
+				style: 'display: none;';
+				id: 'api';
+				mdcClass: 'demo-panel';
+				with: [ self renderDocumentationOn: html ] ]
 ]
 
 { #category : #rendering }
@@ -165,11 +185,12 @@ MDCDemoScreen >> renderDocumentationOn: html [
 
 { #category : #rendering }
 MDCDemoScreen >> renderOptionsOf: class on: html [
-	^ (Pragma allNamed: #mdcApi:priority: from: class to: WATagBrush)
+	(Pragma allNamed: #mdcApi:priority: from: class to: WATagBrush)
 		ifNotEmpty: [ :pragmas | 
 			html paragraph: 'Options: '.
-			html
-				table: [ html
+			html table
+				mdcElevation: 2;
+				with: [ html
 						tableHead: [ html
 								tableRow: [ html
 										tableHeading: 'Selector';
