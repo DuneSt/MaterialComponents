@@ -58,7 +58,7 @@ MDCTabBarDemoScreen >> renderMinWidthTabsDemoOn: html [
 		mdcElevation: 4;
 		style: 'min-width: 350px;';
 		with: [ html mdcList
-				id: #demo6;
+				id: html nextId;
 				with: [ self renderListContentFor: 'Furry' on: html ].
 			html
 				mdcTabBar: [ html
@@ -67,7 +67,7 @@ MDCTabBarDemoScreen >> renderMinWidthTabsDemoOn: html [
 									html mdcTab
 										minWidth;
 										beActiveIf: kind = 'Furry';
-										onClick: ((html jQuery id: #demo6) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
 										with: [ html mdcTabContent: [ html mdcTabIcon: asso key ].
 											html mdcTabIndicator
 												beActiveIf: kind = 'Furry';
@@ -80,7 +80,8 @@ MDCTabBarDemoScreen >> renderScreenContentOn: html [
 		render: self tabBar fullWidth: true on: html;
 		render: self simpleTabBar on: html;
 		render: self tabIndicatorOptions on: html;
-		render: self tabOptions on: html
+		render: self tabOptions on: html;
+		render: self tabScrollerAlignments on: html
 ]
 
 { #category : #code }
@@ -88,7 +89,7 @@ MDCTabBarDemoScreen >> renderSimpleTabBarDemoOn: html [
 	html div
 		mdcElevation: 4;
 		with: [ html mdcList
-				id: #demo2;
+				id: html nextId;
 				with: [ self renderListContentFor: 'Furry' on: html ].
 			html
 				mdcTabBar: [ html
@@ -96,7 +97,7 @@ MDCTabBarDemoScreen >> renderSimpleTabBarDemoOn: html [
 								keysAndValuesDo: [ :kind :asso | 
 									html
 										mdcSimpleTabActive: kind = 'Furry'
-										customization: [ :tab | tab onClick: ((html jQuery id: #demo2) load html: [ :canvas | self renderListContentFor: kind on: html ]) ]
+										customization: [ :tab | tab onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]) ]
 										with: [ html mdcTabIcon: asso key.
 											html mdcTabLabel: kind ] ] ] ] ]
 ]
@@ -106,7 +107,7 @@ MDCTabBarDemoScreen >> renderStackedTabsDemoOn: html [
 	html div
 		mdcElevation: 4;
 		with: [ html mdcList
-				id: #demo5;
+				id: html nextId;
 				with: [ self renderListContentFor: 'Furry' on: html ].
 			html
 				mdcTabBar: [ html
@@ -115,7 +116,7 @@ MDCTabBarDemoScreen >> renderStackedTabsDemoOn: html [
 									html mdcTab
 										stacked;
 										beActiveIf: kind = 'Furry';
-										onClick: ((html jQuery id: #demo5) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
 										with: [ html
 												mdcTabContent: [ html mdcTabIcon: asso key.
 													html mdcTabLabel: kind ].
@@ -162,7 +163,7 @@ MDCTabBarDemoScreen >> renderTabIndicatorIconFadingDemoOn: html [
 	html div
 		mdcElevation: 4;
 		with: [ html mdcList
-				id: #demo3;
+				id: html nextId;
 				with: [ self renderListContentFor: 'Furry' on: html ].
 			html
 				mdcTabBar: [ html
@@ -170,7 +171,7 @@ MDCTabBarDemoScreen >> renderTabIndicatorIconFadingDemoOn: html [
 								keysAndValuesDo: [ :kind :asso | 
 									html mdcTab
 										beActiveIf: kind = 'Furry';
-										onClick: ((html jQuery id: #demo3) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
 										with: [ html
 												mdcTabContent: [ html mdcTabIcon: asso key.
 													html mdcTabLabel: kind ].
@@ -185,7 +186,7 @@ MDCTabBarDemoScreen >> renderTabIndicatorIconSlidingDemoOn: html [
 	html div
 		mdcElevation: 4;
 		with: [ html mdcList
-				id: #demo4;
+				id: html nextId;
 				with: [ self renderListContentFor: 'Furry' on: html ].
 			html
 				mdcTabBar: [ html
@@ -193,13 +194,88 @@ MDCTabBarDemoScreen >> renderTabIndicatorIconSlidingDemoOn: html [
 								keysAndValuesDo: [ :kind :asso | 
 									html mdcTab
 										beActiveIf: kind = 'Furry';
-										onClick: ((html jQuery id: #demo4) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+										onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
 										with: [ html
 												mdcTabContent: [ html mdcTabIcon: asso key.
 													html mdcTabLabel: kind ].
 											html mdcTabIndicator
 												beActiveIf: kind = 'Furry';
 												with: [ html mdcTabIconIndicatorContent: #done ] ] ] ] ] ]
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderTabScrollerCenterDemoOn: html [
+	html div
+		mdcElevation: 4;
+		with: [ html mdcList
+				id: html nextId;
+				style: 'min-width: 300px';
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html mdcTabScroller
+						alignCenter;
+						with: [ html
+								mdcTabScrollerArea: [ html
+										mdcTabScrollerContent: [ self datas
+												keysAndValuesDo: [ :kind :asso | 
+													html mdcTab
+														minWidth;
+														beActiveIf: kind = 'Furry';
+														onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+														with: [ html mdcTabContent: [ html mdcTabIcon: asso key ].
+															html mdcTabIndicator
+																beActiveIf: kind = 'Furry';
+																with: [ html mdcTabUnderlinedIndicatorContent ] ] ] ] ] ] ] ]
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderTabScrollerEndDemoOn: html [
+	html div
+		mdcElevation: 4;
+		with: [ html mdcList
+				id: html nextId;
+				style: 'min-width: 300px';
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html mdcTabScroller
+						alignEnd;
+						with: [ html
+								mdcTabScrollerArea: [ html
+										mdcTabScrollerContent: [ self datas
+												keysAndValuesDo: [ :kind :asso | 
+													html mdcTab
+														minWidth;
+														beActiveIf: kind = 'Furry';
+														onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+														with: [ html mdcTabContent: [ html mdcTabIcon: asso key ].
+															html mdcTabIndicator
+																beActiveIf: kind = 'Furry';
+																with: [ html mdcTabUnderlinedIndicatorContent ] ] ] ] ] ] ] ]
+]
+
+{ #category : #code }
+MDCTabBarDemoScreen >> renderTabScrollerStartDemoOn: html [
+	html div
+		mdcElevation: 4;
+		with: [ html mdcList
+				id: html nextId;
+				style: 'min-width: 300px';
+				with: [ self renderListContentFor: 'Furry' on: html ].
+			html
+				mdcTabBar: [ html mdcTabScroller
+						alignStart;
+						with: [ html
+								mdcTabScrollerArea: [ html
+										mdcTabScrollerContent: [ self datas
+												keysAndValuesDo: [ :kind :asso | 
+													html mdcTab
+														minWidth;
+														beActiveIf: kind = 'Furry';
+														onClick: ((html jQuery id: html lastId) load html: [ :canvas | self renderListContentFor: kind on: html ]);
+														with: [ html mdcTabContent: [ html mdcTabIcon: asso key ].
+															html mdcTabIndicator
+																beActiveIf: kind = 'Furry';
+																with: [ html mdcTabUnderlinedIndicatorContent ] ] ] ] ] ] ] ]
 ]
 
 { #category : #sections }
@@ -229,6 +305,15 @@ MDCTabBarDemoScreen >> tabOptions [
 	^ OrderedDictionary new
 		add: 'Stacked tabs' -> #renderStackedTabsDemoOn:;
 		add: 'Min width tabs' -> #renderMinWidthTabsDemoOn:;
+		yourself
+]
+
+{ #category : #sections }
+MDCTabBarDemoScreen >> tabScrollerAlignments [
+	^ OrderedDictionary new
+		add: 'Content aligned left' -> #renderTabScrollerStartDemoOn:;
+		add: 'Content aligned center' -> #renderTabScrollerCenterDemoOn:;
+		add: 'Content aligned right' -> #renderTabScrollerEndDemoOn:;
 		yourself
 ]
 
