@@ -45,9 +45,14 @@ MDCRadio >> after [
 ]
 
 { #category : #options }
-MDCRadio >> disabled: aBoolean [
+MDCRadio >> disabled [
 	<mdcApi: 'Optional, set a disabled style to the radio button.' priority: 10>
-	super disabled: aBoolean.
+	super disabled
+]
+
+{ #category : #options }
+MDCRadio >> disabled: aBoolean [
+	<mdcApi: 'Optional, set a disabled style to the radio button.' priority: 20>
 	aBoolean ifTrue: [ self mdcClass: 'radio--disabled' ]
 ]
 

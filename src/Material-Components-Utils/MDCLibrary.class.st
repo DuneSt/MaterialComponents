@@ -169,6 +169,10 @@ MDC.initialize = function (){
   this.formField.initializeFormFields();
 };
 
+MDC.instanceFor = function(domElement) {
+    return domElement[domElement.getAttribute("data-mdc-auto-init")];
+};
+
 MDC.topAppBar.instance = function () {
     return this.inst = this.inst || document.querySelector(".mdc-top-app-bar").MDCTopAppBar;
 };
@@ -218,11 +222,12 @@ MDC.ripples.initializeAllRipples = function() {
 Attach form fields with their input.
  */
 MDC.formField.initializeFormFields = function() {
-    for (const field of (document.querySelectorAll(".mdc-form-field"))) {
+    const formFields = document.querySelectorAll(".mdc-form-field");
+    for (const field of formFields) {
         const inputs = field.querySelectorAll("[data-mdc-auto-init]");
         if(inputs.length === 1) {
             const input = inputs[0];
-            field.MDCFormField.input = eval("input." +  (input.getAttribute("data-mdc-auto-init")));
+            field.MDCFormField.input = MDC.instanceFor(input);
         } else {
             throw "MDC Seaside: Only one component should be in a form field.";
         }

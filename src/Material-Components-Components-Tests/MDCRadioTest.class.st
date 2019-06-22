@@ -10,6 +10,17 @@ MDCRadioTest >> testBareBrush [
 ]
 
 { #category : #tests }
+MDCRadioTest >> testDisabled [
+	self
+		assert: [ :html | 
+			html mdcRadio
+				disabled;
+				with: 'Test' ]
+		generates:
+			'<div class="mdc-radio mdc-radio--disabled" data-mdc-auto-init="MDCRadio">Test<div class="mdc-radio__background"><div class="mdc-radio__outer-circle"></div><div class="mdc-radio__inner-circle"></div></div></div>'
+]
+
+{ #category : #tests }
 MDCRadioTest >> testIsAutoInitialized [
 	self assert: [ :html | html mdcRadio ] generatedIncludes: 'data-mdc-auto-init="MDCRadio"'
 ]
