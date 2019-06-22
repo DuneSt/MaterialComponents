@@ -161,10 +161,12 @@ MDCLibrary >> mdcSeasideJs [
 MDC.drawer = {};
 MDC.topAppBar = {};
 MDC.ripples = {};
+MDC.formField = {};
 
 MDC.initialize = function (){
   mdc.autoInit();
   this.ripples.initializeAllRipples();
+  this.formField.initializeFormFields();
 };
 
 MDC.topAppBar.instance = function () {
@@ -209,6 +211,21 @@ Attach ripples to all surfaces with the `.mdc-with-ripple` class.
 MDC.ripples.initializeAllRipples = function() {
     for (const element of (document.querySelectorAll(".mdc-with-ripple"))) {
         mdc.ripple.MDCRipple.attachTo(element);
+    }
+};
+
+/*
+Attach form fields with their input.
+ */
+MDC.formField.initializeFormFields = function() {
+    for (const field of (document.querySelectorAll(".mdc-form-field"))) {
+        const inputs = field.querySelectorAll("[data-mdc-auto-init]");
+        if(inputs.length === 1) {
+            const input = inputs[0];
+            field.MDCFormField.input = eval("input." +  (input.getAttribute("data-mdc-auto-init")));
+        } else {
+            throw "MDC Seaside: Only one component should be in a form field.";
+        }
     }
 };'
 ]

@@ -570,7 +570,10 @@ MDCDemoLibrary >> mcDemoCss [
     background-color: white;
 }
 
-
+/* Toggles */
+.mdc-demo-toggles .mdc-snippet-demo {
+    min-width: 300px;
+}
 
 
 

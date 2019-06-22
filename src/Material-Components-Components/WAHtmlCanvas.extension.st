@@ -133,6 +133,18 @@ WAHtmlCanvas >> mdcDrawerContent: aBlock [
 ]
 
 { #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcFormField [
+	^ self brush: MDCFormField new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcFormField: aBlock [
+	^ self mdcFormField
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
 WAHtmlCanvas >> mdcGrid [
 	^ self brush: MDCGrid new
 ]
@@ -217,6 +229,45 @@ WAHtmlCanvas >> mdcNavigationList: aBlock [
 	^ self mdcList
 		navigation;
 		with: aBlock
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadio [
+	^ self brush: MDCRadio new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadio: aBlock [
+	^ self mdcRadio
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadioBackground [
+	^ self brush: MDCRadioBackground new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadioButton [
+	^ self brush: MDCRadioButton new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadioButton: aBlock [
+	^ self mdcRadioButton
+		with: aBlock
+		yourself
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadioInnerCircle [
+	^ self brush: MDCRadioInnerCircle new
+]
+
+{ #category : #'*Material-Components-Components' }
+WAHtmlCanvas >> mdcRadioOuterCircle [
+	^ self brush: MDCRadioOuterCircle new
 ]
 
 { #category : #'*Material-Components-Components' }
