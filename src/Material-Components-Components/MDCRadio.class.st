@@ -14,6 +14,8 @@ MDCRadio >> after [
 
 { #category : #initialization }
 MDCRadio >> initialize [
+	<mdcConstructor: #mdcRadio description: 'Creates a Radio buttons allowing the user to select one option from a set while seeing all available options.'>
+	<mdcConstructor: #mdcRadio: description: 'Creates a Radio buttons allowing the user to select one option from a set while seeing all available options with implicit content.'>
 	super initialize.
 	self
 		mdcClass: 'radio';
