@@ -1,3 +1,11 @@
+"
+Description
+--------------------
+
+I denote the ripple of a MDCTab.
+
+I should not be instantiated by the user. MDCTab instantiate me itself.
+"
 Class {
 	#name : #MDCTabRipple,
 	#superclass : #MDCSpanTag,
