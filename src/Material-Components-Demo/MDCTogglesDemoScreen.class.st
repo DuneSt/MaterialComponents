@@ -74,3 +74,8 @@ MDCTogglesDemoScreen >> renderScreenContentOn: html [
 	self
 		render: self radioButtons on: html
 ]
+
+{ #category : #accessing }
+MDCTogglesDemoScreen >> warningMessage [
+	^ 'Page under construction.'
+]

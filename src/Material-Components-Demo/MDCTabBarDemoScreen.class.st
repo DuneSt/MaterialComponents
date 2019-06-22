@@ -316,8 +316,3 @@ MDCTabBarDemoScreen >> tabScrollerAlignments [
 		add: 'Content aligned right' -> #renderTabScrollerEndDemoOn:;
 		yourself
 ]
-
-{ #category : #accessing }
-MDCTabBarDemoScreen >> warningMessage [
-	^ 'Page under construction.'
-]
