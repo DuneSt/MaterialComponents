@@ -28,7 +28,28 @@ MDCTogglesDemoScreen >> actualClasses [
 MDCTogglesDemoScreen >> radioButtons [
 	^ OrderedDictionary new
 		add: 'Radio buttons' -> #renderRadioButtonsDemoOn:;
+		add: 'Disabled radio buttons' -> #renderDisabledRadioButtonsDemoOn:;
 		yourself
+]
+
+{ #category : #code }
+MDCTogglesDemoScreen >> renderDisabledRadioButtonsDemoOn: html [
+	html radioGroup
+		callback: [ :value | value crLog ];
+		selected: true;
+		with: [ :group | 
+			#(true false)
+				do: [ :boolean | 
+					html
+						mdcFormField: [ html mdcRadio
+								disabled;
+								with: [ group mdcRadioButton
+										disabled;
+										id: html nextId;
+										value: boolean ].
+							html label
+								for: html lastId;
+								with: boolean asString capitalized ] ] ]
 ]
 
 { #category : #code }

@@ -1,3 +1,11 @@
+"
+Description
+--------------------
+
+I am an inner part of a MDCRadio.
+
+The user should not instantiate me directly. My container will do it automatically.
+"
 Class {
 	#name : #MDCRadioBackground,
 	#superclass : #MDCDivTag,
